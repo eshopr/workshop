@@ -1,6 +1,6 @@
-var homeController = angular.module('customerController', []);
+var homeController = angular.module('homeController', []);
 
-homeController.controller('customerController', function($scope, $http) { 
+homeController.controller('homeController', function($scope, $http) { 
   // we now must find some way to put home in the 
   //scope 
     $scope.registered = "Welcome back {username}";

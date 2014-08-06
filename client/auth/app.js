@@ -22,28 +22,41 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
 
     // Anonymous routes
     $stateProvider
-        .state('anon', {
-            abstract: true,
-            template: "<ui-view/>",
-            data: {
-                access: access.anon
-            }
-        })
-        .state('anon.home', {
-            url: '/home/',
-            templateUrl: 'uiview-home',
-            controller: 'HomeCtrl'
-        })
-        .state('anon.login', {
-            url: '/login/',
-            templateUrl: 'login',
-            controller: 'LoginCtrl'
-        })
-        .state('anon.register', {
-            url: '/register/',
-            templateUrl: 'register',
-            controller: 'RegisterCtrl'
-        });
+    .state('anon', {
+        abstract: true,
+        // template: "<ui-view/>",
+        templateUrl: "home",
+        data: {
+            access: access.anon
+        }
+    })
+    .state('anon.home', {
+        url: '/home/',
+        // templateUrl: 'home',
+        // controller: 'homeController',
+        views: {
+            "ad-view": {
+            templateUrl: 'test'
+            }, 
+        }               
+        //     "ad-view": {
+        //     templateUrl: 'test'
+        //     },                
+        //     // "interact-view": {
+        //     // templateUrl: 'registered'
+        //     // },
+        // }
+    })
+    .state('anon.login', {
+        url: '/login/',
+        templateUrl: 'login',
+        controller: 'LoginCtrl'
+    })
+    .state('anon.register', {
+        url: '/register/',
+        templateUrl: 'register',
+        controller: 'RegisterCtrl'
+    });
 
     // Regular user routes
     $stateProvider
@@ -56,8 +69,8 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
         })
         .state('user.home', {
             url: '/',
-            templateUrl: 'uiview-home',
-            controller: 'HomeCtrl'
+            templateUrl: 'test',
+            controller: 'homeController'
         })
         .state('user.private', {
             abstract: true,

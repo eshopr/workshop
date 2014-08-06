@@ -39,6 +39,9 @@ html(lang='en', data-ng-app='angular-client-side-auth')
                             span.label(data-ng-class='{"label-info": user.role.title == userRoles.user.title, "label-success": user.role.title == userRoles.admin.title}') {{ user.role.title }}
 
         .container(data-ui-view)
+
+        .div(ui-view="main-view")
+
         #alertBox.alert.alert-danger(data-ng-show="error")
             button(type="button", class="close", data-ng-click="error = null;") &times;
             strong Oh no!&nbsp;
@@ -53,6 +56,7 @@ html(lang='en', data-ng-app='angular-client-side-auth')
         script(src='/auth/controllers.js')
         script(src='/auth/filters.js')
         script(src='/auth/directives.js')
+        script(src='/home/homeController.js')
 
         // Partial views... Load up front to make transitions smoother
         script(type="text/ng-template", id="404")
@@ -60,7 +64,7 @@ html(lang='en', data-ng-app='angular-client-side-auth')
         script(type="text/ng-template", id="admin")
             include partials/admin
         script(type="text/ng-template", id="home")
-            include partials/uiview-home
+            include partials/home
         script(type="text/ng-template", id="login")
             include partials/login
         script(type="text/ng-template", id="private/layout")

@@ -1,0 +1,32 @@
+h1 -home.jade
+
+pre 
+    ="line1/line2/line3"
+
+article(ui-view)
+    p ui view
+
+article(ui-view="ad-view")
+    p ui view 2
+
+//article(ui-view="interact-view")
+
+.row
+    .col-md-8
+        h2 left.col-md-8
+        .col-md-4
+    h4 .col-md-4
+
+.row
+    .col-md-4
+        h2 One
+    .col-md-4
+        h2 Tow
+    .col-md-4
+        h2 Three
+
+.row
+    .col-md-6
+        h2 lefft
+    .col-md-6
+        h2 lefft
