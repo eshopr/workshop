@@ -29,6 +29,11 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
                 access: access.anon
             }
         })
+        .state('anon.home', {
+            url: '/home/',
+            templateUrl: 'uiview-home',
+            controller: 'HomeCtrl'
+        })
         .state('anon.login', {
             url: '/login/',
             templateUrl: 'login',
@@ -51,7 +56,8 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
         })
         .state('user.home', {
             url: '/',
-            templateUrl: 'home'
+            templateUrl: 'uiview-home',
+            controller: 'HomeCtrl'
         })
         .state('user.private', {
             abstract: true,
