@@ -27,7 +27,8 @@ var routes = [
             // var requestedView = path.join('./', req.url);
             res.send('Ecomm API is running');
             // res.render(requestedView);
-        }]
+        }],
+        accessLevel: accessLevels.admin
     },
 
     // OAUTH
