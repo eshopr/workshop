@@ -11,9 +11,10 @@ h3 {{item}}
 
 ul.list-inline(ng-repeat="ingredient in ingredients")
     li 
-        a(href='#' ng-click="doStuff(ingredient._id)") show
     li {{ingredient.sku}}
     li {{ingredient.productName}}
     li {{ingredient.price}}
     li {{ingredient.inventory}}
+    li
+        a(href='#' ng-click="deleteIngredient(ingredient._id)") delete
 
