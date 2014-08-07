@@ -77,17 +77,25 @@ var eshoprShop = angular.module('eshoprShop', [
             url: '/private/',
             templateUrl: 'private/layout'
         })
-        .state('user.private.home', {
+        .state('user.private.welcome', {
             url: '',
-            templateUrl: 'private/home'
+            templateUrl: 'private/welcome'
         })
-        .state('user.private.nested', {
-            url: 'nested/',
-            templateUrl: 'private/nested'
+        .state('user.private.addrecipe', {
+            url: 'addrecipe/',
+            templateUrl: 'private/add'
+        })
+        .state('user.private.cupboard', {
+            url: 'cupboard/',
+            templateUrl: 'private/cupboard'
+        })
+        .state('user.private.write', {
+            url: 'write/',
+            templateUrl: 'private/write'
         })
         .state('user.private.admin', {
             url: 'admin/',
-            templateUrl: 'private/nestedAdmin',
+            templateUrl: 'private/stock',
             data: {
                 access: access.admin
             }

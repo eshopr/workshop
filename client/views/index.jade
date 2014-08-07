@@ -28,13 +28,13 @@ html(lang='en', data-ng-app='eshoprShop')
                             a(href='/private') Private
                         li(data-access-level='accessLevels.admin', active-nav)
                             a(href='/admin') Admin
-                        li(data-access-level='accessLevels.user')
-                            a(href="", data-ng-click="logout()")
-                                | Log out
+
                         div#userInfo.pull-right(data-access-level='accessLevels.user')
                             | Welcome&nbsp;
                             strong {{ user.username }}&nbsp;
                             span.label(data-ng-class='{"label-info": user.role.title == userRoles.user.title, "label-success": user.role.title == userRoles.admin.title}') {{ user.role.title }}
+                            a(href="", data-ng-click="logout()")
+                                | Log out
 
         .container(data-ui-view)
         #alertBox.alert.alert-danger(data-ng-show="error")
@@ -66,11 +66,15 @@ html(lang='en', data-ng-app='eshoprShop')
             include partials/login
         script(type="text/ng-template", id="private/layout")
             include partials/private/layout
-        script(type="text/ng-template", id="private/home")
-            include partials/private/home
-        script(type="text/ng-template", id="private/nested")
-            include partials/private/nested
-        script(type="text/ng-template", id="private/nestedAdmin")
-            include partials/private/nestedAdmin
+        script(type="text/ng-template", id="private/welcome")
+            include partials/private/welcome
+        script(type="text/ng-template", id="private/add")
+            include partials/private/add
+        script(type="text/ng-template", id="private/cupboard")
+            include partials/private/cupboard
+        script(type="text/ng-template", id="private/write")
+            include partials/private/write
+        script(type="text/ng-template", id="private/stock")
+            include partials/private/stock
         script(type="text/ng-template", id="register")
             include partials/register

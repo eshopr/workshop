@@ -14,12 +14,20 @@ ingredientsController.controller('ingredientsController', function($scope, $http
 
   $scope.groups = [
     {
-      title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
+      title: 'Biscuits',
+      content: 'total sales, stock, price, active'
     },
     {
-      title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
+      title: 'Spring Onions',
+      content: 'total sales, stock, price, active'
+    },
+    {
+      title: 'Imported Rice',
+      content: 'total sales, stock, price, active'
+    },
+    {
+      title: 'Boiled Sweets',
+      content: 'total sales, stock, price, active'
     }
   ];
 
