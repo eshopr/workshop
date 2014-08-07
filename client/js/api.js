@@ -1,9 +1,9 @@
- eshoprShop.factory("IngredientFactory", function($resource) {
+//  eshoprShop.factory("IngredientFactory", function($resource) {
 
-    // factory.getIngredients = function ($resource){
-        var url = "/api/ingredients/:id";
-        return $resource(url);
-    // }
+//     // factory.getIngredients = function ($resource){
+//         var url = "/api/ingredients/:id";
+//         return $resource(url);
+//     // }
 
-    // return factory;
-});
+//     // return factory;
+// });

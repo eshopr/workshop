@@ -46,16 +46,37 @@ var routes = [
         httpMethod: 'GET',
         middleware: [function (req, res) {
             Ingredient.find(function(err, ingredients) {
-
                     // if there is an error retrieving, send the error. nothing after res.send(err) will execute
                     if (err)
                         res.send(err)
-
                     res.json(ingredients); // return all ingredients in JSON format
             });
         }],
         accessLevel: accessLevels.public
     },
+
+    {
+        path: '/api/ingredients/:ingredients_id',
+        httpMethod: 'DELETE',
+        middleware: [function (req, res) {
+        Ingredient.remove({
+          _id : req.body._id
+        }, function(err, ingredient) {
+          if (err)
+            res.send(err);
+
+          // get and return all the ingredients after you delete one
+          Ingredient.find(function(err, ingredients) {
+            if (err)
+              res.send(err)
+            res.json(ingredients);
+          });
+        });
+        }],
+        accessLevel: accessLevels.public
+    },
+
+
 
     // OAUTH
     {
