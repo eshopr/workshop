@@ -15,6 +15,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'ngCookies', 
     'ui.router',
     'ngResource',
+    'cupboardController'
     // 'recipeController'
     ])
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -87,7 +88,8 @@ var eshoprShop = angular.module('eshoprShop', [
         })
         .state('user.private.cupboard', {
             url: 'cupboard/',
-            templateUrl: 'private/cupboard'
+            templateUrl: 'private/cupboard',
+            controller: 'cupboardController'
         })
         .state('user.private.write', {
             url: 'write/',

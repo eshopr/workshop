@@ -3,9 +3,14 @@ h2
         i.fa.fa-search &nbsp;
     Look in your pantry.
 
-div(ng-controller="IngredientsList")
-    ul.list-inline(ng-repeat="ingredient in ingredients")
-        li {{ingredient.sku}}
-        li {{ingredient.productName}}
-        li {{ingredient.price}}
-        li {{ingredient.inventory}}
+{{works}}
+{{ingredients}}
+
+//h3(ng-click="IngredientShow()");
+
+ul.list-inline(ng-repeat="ingredient in ingredients")
+    li {{ingredient.sku}}
+    li {{ingredient.productName}}
+    li {{ingredient.price}}
+    li {{ingredient.inventory}}
+
