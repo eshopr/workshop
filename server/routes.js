@@ -40,7 +40,7 @@ var routes = [
         }],
         accessLevel: accessLevels.public
     },
-
+    // Return all ingredients
     {
         path: '/api/ingredients',
         httpMethod: 'GET',
@@ -54,7 +54,46 @@ var routes = [
         }],
         accessLevel: accessLevels.public
     },
+    // Create a new ingredient
+    {
+        path: '/api/ingredients',
+        httpMethod: 'POST',
+        middleware: [function (req, res) {
+            var bear = new Ingredient();      // create a new instance of the Bear model
+            console.log(req.body);
+            bear.sku= req.body.sku;  // set the bears name (comes from the request)
+    //             var newItem = {
+    //   "sku" : "String",
+    //   "productName" : "String",
+    //   "price": "String",
+    //   "inventory": "String",
+    //   "image": "String",
+    // };
+            // save the bear and check for errors
+            bear.save(function(err) {
+                if (err)
+                    res.send(err);
+            });
+        }],
+        accessLevel: accessLevels.public
+    },
+     /** CREATE Unit Test - jquery.post should add something to the database
+  ******************************
+jQuery.post("/api/ingredients", {
+    "sku" : "String",
+    "productName" : "String",
+    "price": "String",
+    "inventory": "String",
+    "image": "String",
+  }, function (data, textStatus, jqXHR) { 
+      console.log("Post response:"); console.dir(data); console.log(textStatus); console.dir(jqXHR); 
+  });
+  *****************************
+  / Works 0.0.1 */
 
+
+
+            
     {
         path: '/api/ingredients/:ingredients_id',
         httpMethod: 'DELETE',
@@ -62,6 +101,7 @@ var routes = [
         Ingredient.remove({
           _id : req.body._id
         }, function(err, ingredient) {
+            console.log(ingredient);
           if (err)
             res.send(err);
 

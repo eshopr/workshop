@@ -10,8 +10,11 @@ eshoprShop.factory("IngredientFactory", function($http,$resource) {
   // factory.getIngredient = function () {
   //       return $http.put(urlBase + '/' + id);
   // };
+  factory.insertIngredient = function (dataObject) {
+        return $http.post(url, dataObject);
+    };
   factory.deleteIngredient = function (id) {
-        console.log(id);
+        console.log('doing stuff');
         return $http.delete(url + '/' + id);
   };
   return factory
@@ -24,6 +27,13 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
   $scope.works = 'cupboardController';
   $scope.ingredients = {};
   $scope.item = {};
+  $scope.newItem = {
+      "sku" : "String",
+      "productName" : "String",
+      "price": "String",
+      "inventory": "String",
+      "image": "String",
+    };
   
   function init() {
     IngredientFactory.getIngredients().then(function(response) {
@@ -36,10 +46,17 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
   $scope.doStuff = function(id){
     var ohm = id;
     console.log('var ohm = '+id)
-    IngredientFactory.deleteIngredient(ohm).then(function(response) {
+
+    // IngredientFactory.deleteIngredient(ohm).then(function(response) {
+    //   console.log(response);
+    //   $scope.ingredients = response.data;
+    // }); // there probably should be an error callback here
+
+    IngredientFactory.insertIngredient($scope.newItem).then(function(response) {
       console.log(response);
       $scope.ingredients = response.data;
     }); // there probably should be an error callback here
+
   }
   // console.log($scope.ingredients);
 });

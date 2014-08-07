@@ -7,7 +7,8 @@
     "bootstrap": "~3.1.0",
     "angular-bootstrap": "",
     "font-awesome": "~4.0.3",
-    "angular-cookies": "~1.2.12"
+    "angular-cookies": "~1.2.12",
+    "jQuery":""
   },
   "devDependencies": {
     "angular-mocks": "~1.2.12"
