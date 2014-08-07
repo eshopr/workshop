@@ -47,7 +47,6 @@ var eshoprShop = angular.module('eshoprShop', [
         .state('anon.home', {
             url: '/home/',
             templateUrl: 'home',
-            controller: 'ingredientsController'
         })
         .state('anon.login', {
             url: '/login/',
@@ -66,7 +65,7 @@ var eshoprShop = angular.module('eshoprShop', [
             abstract: true,
             template: "<ui-view/>",
             data: {
-                access: access.user
+                access: access.anon
             }
         })
         .state('user.home', {
@@ -176,7 +175,7 @@ var eshoprShop = angular.module('eshoprShop', [
                     $state.go('user.home');
                 } else {
                     $rootScope.error = null;
-                    $state.go('anon.login');
+                    $state.go('anon.home');
                 }
             }
         }

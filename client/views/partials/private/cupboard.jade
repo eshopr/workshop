@@ -2,3 +2,10 @@ h2
     span
         i.fa.fa-search &nbsp;
     Look in your pantry.
+
+div(ng-controller="IngredientsList")
+    ul.list-inline(ng-repeat="ingredient in ingredients")
+        li {{ingredient.sku}}
+        li {{ingredient.productName}}
+        li {{ingredient.price}}
+        li {{ingredient.inventory}}
