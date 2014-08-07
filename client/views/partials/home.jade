@@ -1,2 +1,43 @@
-h1 Hello
-p This view is visible to logged in users.
+.container
+    div.jumbotron
+        h1= title
+        p Welcome to #{title}
+        
+.container
+    div.row
+        hjlkhkj
+
+.container
+    .row(ng-controller="ingredientsController")
+        h2 yuyt {{studentName}}
+        progress(percent="{{studentMark}}")
+
+
+button.btn.btn-default.btn-sm(ng-click="status.open = !status.open")
+    Toggle last panel
+
+button.btn.btn-default.btn-sm(ng-click="status.isFirstDisabled = ! status.isFirstDisabled")
+    Enable / Disable first panel
+
+label.checkbox Open only one at a time
+input(type="checkbox" ng-model="oneAtATime")
+
+accordion(close-others="oneAtATime")
+    accordion-group(heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled")
+        This content is straight in the template.
+
+    accordion-group(heading="{{group.title}}" ng-repeat="group in groups")
+        {{group.content}}
+
+    accordion-group(heading="Dynamic Body Content")
+        p The body of the accordion group grows to fit the contents
+        button.btn.btn-default.btn-sm(ng-click="addItem()")
+            Add Item
+        div(ng-repeat="item in items")
+            {{item}}
+
+    accordion-group(is-open="status.open")
+        accordion-heading
+            I can have markup too
+        This is just some content to illustrate fancy headings. 
+

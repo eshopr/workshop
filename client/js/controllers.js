@@ -2,8 +2,7 @@
 
 /* Controllers */
 
-angular.module('angular-client-side-auth')
-.controller('NavCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+eshoprShop.controller('NavCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     $scope.user = Auth.user;
     $scope.userRoles = Auth.userRoles;
     $scope.accessLevels = Auth.accessLevels;
@@ -17,8 +16,7 @@ angular.module('angular-client-side-auth')
     };
 }]);
 
-angular.module('angular-client-side-auth')
-.controller('LoginCtrl',
+eshoprShop.controller('LoginCtrl',
 ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
 
     $scope.rememberme = true;
@@ -41,8 +39,7 @@ angular.module('angular-client-side-auth')
     };
 }]);
 
-angular.module('angular-client-side-auth')
-.controller('RegisterCtrl',
+eshoprShop.controller('RegisterCtrl',
 ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     $scope.role = Auth.userRoles.user;
     $scope.userRoles = Auth.userRoles;
@@ -62,8 +59,7 @@ angular.module('angular-client-side-auth')
     };
 }]);
 
-angular.module('angular-client-side-auth')
-.controller('AdminCtrl',
+eshoprShop.controller('AdminCtrl',
 ['$rootScope', '$scope', 'Users', 'Auth', function($rootScope, $scope, Users, Auth) {
     $scope.loading = true;
     $scope.userRoles = Auth.userRoles;

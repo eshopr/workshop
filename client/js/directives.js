@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('angular-client-side-auth')
-.directive('accessLevel', ['Auth', function(Auth) {
+eshoprShop.directive('accessLevel', ['Auth', function(Auth) {
     return {
         restrict: 'A',
         link: function($scope, element, attrs) {
@@ -33,7 +32,7 @@ angular.module('angular-client-side-auth')
     };
 }]);
 
-angular.module('angular-client-side-auth').directive('activeNav', ['$location', function($location) {
+eshoprShop.directive('activeNav', ['$location', function($location) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {

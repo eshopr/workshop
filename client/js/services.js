@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('angular-client-side-auth')
-.factory('Auth', function($http, $cookieStore){
+eshoprShop.factory('Auth', function($http, $cookieStore){
 
     var accessLevels = routingConfig.accessLevels
         , userRoles = routingConfig.userRoles
@@ -54,8 +53,7 @@ angular.module('angular-client-side-auth')
     };
 });
 
-angular.module('angular-client-side-auth')
-.factory('Users', function($http) {
+eshoprShop.factory('Users', function($http) {
     return {
         getAll: function(success, error) {
             $http.get('/users').success(success).error(error);

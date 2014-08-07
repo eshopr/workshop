@@ -1,8 +1,22 @@
 'use strict';
 
-angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
+// .directive('shopheader', function() {
+//     return {
+//       templateUrl: 'header.html'
+//     };
+// })
+// .directive('shopfooter', function() {
+//     return {
+//       templateUrl: 'footer.html'
+//     };
+// });
 
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+var eshoprShop = angular.module('eshoprShop', [
+    'ngCookies', 
+    'ui.router',
+    'ingredientsController'
+    ])
+.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
     var access = routingConfig.accessLevels;
 
@@ -28,6 +42,11 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
             data: {
                 access: access.anon
             }
+        })
+        .state('anon.home', {
+            url: '/home/',
+            templateUrl: 'home',
+            controller: 'ingredientsController'
         })
         .state('anon.login', {
             url: '/login/',
