@@ -1,11 +1,21 @@
 var _ =           require('underscore')
     , path =      require('path')
     , passport =  require('passport')
+    , mongoose =  require('mongoose')
     , AuthCtrl =  require('./controllers/auth')
     , UserCtrl =  require('./controllers/user')
     , User =      require('./models/User.js')
     , userRoles = require('../client/js/routingConfig').userRoles
     , accessLevels = require('../client/js/routingConfig').accessLevels;
+
+// define model =================
+var Ingredient = mongoose.model('Ingredient', {
+    sku : String,
+    productName : String,
+    price : String,
+    inventory : String,
+    image: String,
+});
 
 var routes = [
 
@@ -25,10 +35,26 @@ var routes = [
         httpMethod: 'GET',
         middleware: [function (req, res) {
             // var requestedView = path.join('./', req.url);
-            res.send('Ecomm API is running');
+            res.send('Not Cookied API is running');
             // res.render(requestedView);
         }],
-        accessLevel: accessLevels.admin
+        accessLevel: accessLevels.public
+    },
+
+    {
+        path: '/api/ingredients',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            Ingredient.find(function(err, ingredients) {
+
+                    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+                    if (err)
+                        res.send(err)
+
+                    res.json(ingredients); // return all ingredients in JSON format
+            });
+        }],
+        accessLevel: accessLevels.public
     },
 
     // OAUTH
