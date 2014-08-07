@@ -14,7 +14,8 @@
 var eshoprShop = angular.module('eshoprShop', [
     'ngCookies', 
     'ui.router',
-    'ingredientsController'
+    'ngResource',
+    // 'recipeController'
     ])
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
