@@ -19,6 +19,17 @@ var routes = [
         }]
     },
 
+    // API
+    {
+        path: '/api',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            // var requestedView = path.join('./', req.url);
+            res.send('Ecomm API is running');
+            // res.render(requestedView);
+        }]
+    },
+
     // OAUTH
     {
         path: '/auth/twitter',

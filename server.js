@@ -5,11 +5,14 @@ var express =           require('express')
     , morgan =          require('morgan')
     , bodyParser =      require('body-parser')
     , methodOverride =  require('method-override')
+    , mongoose =        require('mongoose')
     , cookieParser =    require('cookie-parser')
     , cookieSession =   require('cookie-session')
     , session =         require('express-session')
     , csrf =            require('csurf')
     , User =            require('./server/models/User.js');
+
+mongoose.connect('mongodb://admin:cthulhu6785342@novus.modulusmongo.net:27017/i9nehudE');   // connect to mongoDB database on modulus.io
 
 var app = module.exports = express();
 
