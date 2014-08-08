@@ -7,9 +7,9 @@ eshoprShop.factory("IngredientFactory", function($http,$resource) {
   factory.getIngredients = function () {
     return $http.get(url);
   };
-  // factory.getIngredient = function () {
-  //       return $http.put(urlBase + '/' + id);
-  // };
+  factory.showIngredient = function (id) {
+        return $http.get(url + '/' + id);
+  };
   factory.insertIngredient = function (dataObject) {
         return $http.post(url, dataObject);
     };
@@ -42,7 +42,7 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
   }
   init();
 
-  $scope.doStuff = function(){
+  $scope.createIngredient = function(){
     // should accept formdata = newItem
     IngredientFactory.insertIngredient($scope.newItem).then(function(response) {
       console.log(response);
@@ -56,7 +56,38 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
     IngredientFactory.deleteIngredient(ohm).then(function(response) {
       console.log(response);
       $scope.ingredients = response.data;
-    }); // there probably should be an error callback here
+    });
+    $scope.$apply
   }
-  // console.log($scope.ingredients);
+  $scope.updateIngredient = function(id){
+    // should accept formdata 
+  }
+  $scope.showIngredient = function(id){
+    IngredientFactory.showIngredient(id).then(function(response) {
+      console.log(response);
+      $scope.item = response.data;
+    }); 
+  }
+
+  $scope.editThisIngredient = false;
+
+  $scope.switchToEdit = function(id){
+    $scope.editThisIngredient = id;
+  }
+  $scope.discardEdit = function(id){
+    $scope.editThisIngredient = false;
+  }
+
 });
+
+
+  // // console.log($scope.ingredients);
+  //    $scope.myVar = 1;
+
+  //  $scope.$watch('myVar', function() {
+  //      alert('hey, myVar has changed!');
+  //  });
+
+  //  $scope.buttonClicked = function() {
+  //     $scope.myVar = 2; // This will trigger $watch expression to kick in
+  //  };

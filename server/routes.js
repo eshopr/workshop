@@ -109,6 +109,23 @@ var routes = [
         accessLevel: accessLevels.public
     },
 
+    {
+        path: '/api/ingredients/:ingredient_id',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            console.log(req.params);
+            Ingredient.find({
+                    _id : req.params.ingredient_id
+                }, function(err, ingredient) {
+                    console.log(ingredient);
+                    if (err)
+                        res.send(err);
+                    res.json(ingredient);
+            });
+        }],
+        accessLevel: accessLevels.public
+    },
+
 
 
             

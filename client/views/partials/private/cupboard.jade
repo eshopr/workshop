@@ -5,16 +5,66 @@ h2
 
 //- {{works}}
 //- {{ingredients}}
-h3 {{item}}
 
+h3 some {{item}}
+
+h3 Add an ingredient 
+ul.list-inline
+    li 
+        span sku
+            input(value="{{ingredient.sku}}")
+    li 
+        span name
+            input(value="{{ingredient.productName}}")
+    li 
+        span price
+            input(value="{{ingredient.price}}")
+    li 
+        span inventory
+            input(value="{{ingredient.inventory}}")
+    li
+        a(href='#' 
+            ng-show="editThisIngredient == ingredient._id"
+            ng-click="saveIngredient(ingredient._id)") save
+
+h3 Manage your ingredients
 //h3(ng-click="IngredientShow()");
 
 ul.list-inline(ng-repeat="ingredient in ingredients")
     li 
-    li {{ingredient.sku}}
-    li {{ingredient.productName}}
-    li {{ingredient.price}}
-    li {{ingredient.inventory}}
+        a(href="#" 
+            data-ng-click="showIngredient(ingredient._id)" ) view 
+    li 
+        a(href="#" 
+            ng-hide="editThisIngredient == ingredient._id"
+            data-ng-click="switchToEdit(ingredient._id)" ) edit 
+        a(href="#" 
+            ng-show="editThisIngredient == ingredient._id"
+            data-ng-click="discardEdit(ingredient._id)" ) discard
+    li 
+        span(ng-hide="editThisIngredient == ingredient._id") 
+            {{ingredient.sku}}
+        span(ng-show="editThisIngredient == ingredient._id") 
+            input(value="{{ingredient.sku}}")
+    li 
+        span(ng-hide="editThisIngredient == ingredient._id") 
+            {{ingredient.productName}}
+        span(ng-show="editThisIngredient == ingredient._id") 
+            input(value="{{ingredient.productName}}")
+    li 
+        span(ng-hide="editThisIngredient == ingredient._id") 
+            {{ingredient.price}}
+        span(ng-show="editThisIngredient == ingredient._id") 
+            input(value="{{ingredient.price}}")
+    li 
+        span(ng-hide="editThisIngredient == ingredient._id") 
+            {{ingredient.inventory}}
+        span(ng-show="editThisIngredient == ingredient._id") 
+            input(value="{{ingredient.inventory}}")
     li
-        a(href='#' ng-click="deleteIngredient(ingredient._id)") delete
-
+        a(href='#' 
+            ng-hide="editThisIngredient == ingredient._id"
+            ng-click="deleteIngredient(ingredient._id)") delete
+        a(href='#' 
+            ng-show="editThisIngredient == ingredient._id"
+            ng-click="saveIngredient(ingredient._id)") save
