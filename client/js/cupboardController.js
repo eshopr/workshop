@@ -8,11 +8,15 @@ eshoprShop.factory("IngredientFactory", function($http,$resource) {
     return $http.get(url);
   };
   factory.showIngredient = function (id) {
-        return $http.get(url + '/' + id);
+    return $http.get(url + '/' + id);
   };
   factory.insertIngredient = function (dataObject) {
-        return $http.post(url, dataObject);
-    };
+    return $http.post(url, dataObject);
+  };
+  factory.updateIngredient = function (id, dataObject) {
+    return $http.put(url + '/' + cust.ID, cust)
+  };
+
   factory.deleteIngredient = function (id) {
         return $http.delete(url + '/' + id);
   };
@@ -26,6 +30,7 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
   $scope.works = 'cupboardController';
   $scope.ingredients = {};
   $scope.item = {};
+  $scope.formData = {};
   $scope.newItem = {
       "sku" : "String",
       "productName" : "String",
@@ -43,12 +48,14 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
   init();
 
   $scope.createIngredient = function(){
+    if ($scope.formData.sku)
+      $scope.newItem.sku = $scope.formData.sku
     // should accept formdata = newItem
     IngredientFactory.insertIngredient($scope.newItem).then(function(response) {
       console.log(response);
+      $scope.formData = {}; // clear the form so our user is ready to enter another
       $scope.ingredients = response.data;
     }); 
-
   }
   $scope.deleteIngredient = function(id){
     var ohm = id;

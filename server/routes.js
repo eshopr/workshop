@@ -15,6 +15,7 @@ var Ingredient = mongoose.model('Ingredient', {
     price : String,
     inventory : String,
     image: String,
+    // usedby: [],
 });
 
 var routes = [
@@ -126,10 +127,22 @@ var routes = [
         accessLevel: accessLevels.public
     },
 
-
-
-            
-
+    {
+        path: '/api/ingredients/:ingredient_id',
+        httpMethod: 'PUT',
+        middleware: [function (req, res) {
+            console.log(req.params);
+            Ingredient.find({
+                    _id : req.params.ingredient_id
+                }, function(err, ingredient) {
+                    console.log(ingredient);
+                    if (err)
+                        res.send(err);
+                    res.json(ingredient);
+            });
+        }],
+        accessLevel: accessLevels.public
+    },
 
 
     // OAUTH

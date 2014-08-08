@@ -8,6 +8,31 @@ h2
 
 h3 some {{item}}
 
+form.ingredient-add-form(name="myForm" 
+    ng-controller="cupboardController"
+    ng-submit="createIngredient()"
+    )
+    label SKU
+    input(name="input" ng-model="formData.sku" required)
+    //- label Name
+    //- input(name="input" ng-model="formData.productName" required)
+    //- label Price
+    //- input(name="input" ng-model="formData.price" required)
+    //- label Inventory
+    //- input(name="input" ng-model="formData.inventory" required)
+    //- label Image
+    //- input(name="input" ng-model="formData.image" required)
+
+    input.button(type="submit" id="submitnew" value="Create Ingredient") 
+    //- span.error(ng-show="myForm.input.$error.required")
+    //-     Required!
+      //- tt userType = {{userType}}
+      //- tt myForm.input.$valid = {{myForm.input.$valid}}
+      //- tt myForm.input.$error = {{myForm.input.$error}}
+      //- tt myForm.$valid = {{myForm.$valid}})
+      //- tt myForm.$error.required = {{!!myForm.$error.required}})
+    pre
+        {{formData}}
 h3 Add an ingredient 
 ul.list-inline
     li 
