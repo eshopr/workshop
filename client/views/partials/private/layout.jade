@@ -1,6 +1,7 @@
-.container
+.container-fluid
     .row
-        .col-md-4.col-md-push-6
+        .col-md-9(data-ui-view)
+        .col-md-3
             div.list-group(data-ng-controller='NavCtrl')
                 .list-group-item
                     strong Things to do Today
@@ -9,4 +10,3 @@
                 a.list-group-item(href='/private/write', active-nav) Write about yourself.
                 a.list-group-item(href='/private/addrecipe', active-nav) Add a Recipe.
                 a.list-group-item(href='/private/admin', active-nav, data-access-level='accessLevels.admin') A nested admin view
-        .col-md-6.col-md-pull-4(data-ui-view)

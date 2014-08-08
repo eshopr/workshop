@@ -1,92 +1,86 @@
+
 h2 
     span
         i.fa.fa-search &nbsp;
-    Look in your pantry.
+    {Usernames} Cupboard
 
-//- {{works}}
-//- {{ingredients}}
-
-h3 some {{item}}
-
-form.ingredient-add-form(name="myForm" 
-    ng-controller="cupboardController"
-    ng-submit="createIngredient()"
-    )
-    label SKU
-    input(name="input" ng-model="formData.sku" required)
-    //- label Name
-    //- input(name="input" ng-model="formData.productName" required)
-    //- label Price
-    //- input(name="input" ng-model="formData.price" required)
-    //- label Inventory
-    //- input(name="input" ng-model="formData.inventory" required)
-    //- label Image
-    //- input(name="input" ng-model="formData.image" required)
-
-    input.button(type="submit" id="submitnew" value="Create Ingredient") 
-    //- span.error(ng-show="myForm.input.$error.required")
-    //-     Required!
-      //- tt userType = {{userType}}
-      //- tt myForm.input.$valid = {{myForm.input.$valid}}
-      //- tt myForm.input.$error = {{myForm.input.$error}}
-      //- tt myForm.$valid = {{myForm.$valid}})
-      //- tt myForm.$error.required = {{!!myForm.$error.required}})
+.hero
+    Currently Viewed Itemm
     pre
-        {{formData}}
+        {{item}}
+
 h3 Add an ingredient 
-ul.list-inline
-    li 
-        span sku
-            input(value="{{ingredient.sku}}")
-    li 
-        span name
-            input(value="{{ingredient.productName}}")
-    li 
-        span price
-            input(value="{{ingredient.price}}")
-    li 
-        span inventory
-            input(value="{{ingredient.inventory}}")
-    li
-        a(href='#' 
-            ng-show="editThisIngredient == ingredient._id"
-            ng-click="saveIngredient(ingredient._id)") save
 
-h3 Manage your ingredients
-//h3(ng-click="IngredientShow()");
+.row
+    form.ingredient-add-form(name="myForm" 
+        ng-controller="cupboardController"
+        ng-submit="createIngredient()"
+        )
+        .col-md-2
+            input.form-control(name="input" 
+                placeholder="SKU"
+                ng-model="formData.sku" required)
+        .col-md-2
+            input.form-control(name="input" 
+                placeholder="Name"
+                ng-model="formData.productName")
+        .col-md-2
+            input.form-control(name="input" 
+                placeholder="Price"
+                ng-model="formData.price")
+        .col-md-2
+            input.form-control(name="input" 
+                placeholder="Inventory"
+                value="formData.inventory"
+                ng-model="formData.inventory")
+        .col-md-2
+            input.form-control(name="input" 
+                placeholder="Image"
+                ng-model="formData.image")
+        .col-md-2
+            input.form-control.btn(type="submit" id="submitnew" value="Create")
 
-ul.list-inline(ng-repeat="ingredient in ingredients")
-    li 
-        a(href="#" 
-            data-ng-click="showIngredient(ingredient._id)" ) view 
-    li 
-        a(href="#" 
-            ng-hide="editThisIngredient == ingredient._id"
-            data-ng-click="switchToEdit(ingredient._id)" ) edit 
-        a(href="#" 
-            ng-show="editThisIngredient == ingredient._id"
-            data-ng-click="discardEdit(ingredient._id)" ) discard
-    li 
-        span(ng-hide="editThisIngredient == ingredient._id") 
+.row
+    .col-md-12
+        pre
+            {{formData}}
+
+h3 Manage your ingredients -beta
+
+.item.row(ng-repeat="ingredient in ingredients")
+    .col-md-1
+        span.item-span
+            a(href="#" 
+                data-ng-click="showIngredient(ingredient._id)" ) view 
+    .col-md-1
+        span.item-span
+            a(href="#" 
+                ng-hide="editThisIngredient == ingredient._id"
+                data-ng-click="switchToEdit(ingredient._id)" ) edit 
+            a(href="#" 
+                ng-show="editThisIngredient == ingredient._id"
+                data-ng-click="discardEdit(ingredient._id)" ) discard
+    .col-md-2
+        span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.sku}}
-        span(ng-show="editThisIngredient == ingredient._id") 
-            input(value="{{ingredient.sku}}")
-    li 
-        span(ng-hide="editThisIngredient == ingredient._id") 
+        span.item-span(ng-show="editThisIngredient == ingredient._id") 
+            input.form-control(value="{{ingredient.sku}}")
+    .col-md-2 
+        span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.productName}}
-        span(ng-show="editThisIngredient == ingredient._id") 
-            input(value="{{ingredient.productName}}")
-    li 
-        span(ng-hide="editThisIngredient == ingredient._id") 
+        span.item-span(ng-show="editThisIngredient == ingredient._id") 
+            input.form-control(value="{{ingredient.productName}}")
+    .col-md-2
+        span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.price}}
-        span(ng-show="editThisIngredient == ingredient._id") 
-            input(value="{{ingredient.price}}")
-    li 
-        span(ng-hide="editThisIngredient == ingredient._id") 
+        span.item-span(ng-show="editThisIngredient == ingredient._id") 
+            input.form-control(value="{{ingredient.price}}")
+    .col-md-2
+        span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.inventory}}
-        span(ng-show="editThisIngredient == ingredient._id") 
-            input(value="{{ingredient.inventory}}")
-    li
+        span.item-span(ng-show="editThisIngredient == ingredient._id") 
+            input.form-control(value="{{ingredient.inventory}}")
+    .col-md-2
         a(href='#' 
             ng-hide="editThisIngredient == ingredient._id"
             ng-click="deleteIngredient(ingredient._id)") delete

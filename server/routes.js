@@ -60,23 +60,26 @@ var routes = [
         path: '/api/ingredients',
         httpMethod: 'POST',
         middleware: [function (req, res) {
+            console.log('worsks')
+            console.log(req.body);
+            console.log('still not crashed');
             var ingredient = new Ingredient(); 
             ingredient.sku= req.body.sku;  
             ingredient.productName= req.body.productName;
             ingredient.price= req.body.price;
             ingredient.inventory= req.body.inventory;
             ingredient.image= req.body.image;
-            // save the ingredient and check for errors
+            //save the ingredient and check for errors
             ingredient.save(function(err) {
                 if (err)
                     res.send(err);
             });
                           // get and return all the ingredients after you ADD one
-            ingredient.find(function(err, ingredients) {
-                if (err)
-                  res.send(err)
-                res.json(ingredients);
-            });
+            // ingredient.find(function(err, ingredients) {
+            //     if (err)
+            //       res.send(err)
+            //     res.json(ingredients);
+            // });
         }],
         accessLevel: accessLevels.public
     },
