@@ -23,4 +23,3 @@ eshoprShop.factory("IngredientFactory", function($http,$resource) {
   };
   return factory
 });
-

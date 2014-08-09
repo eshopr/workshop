@@ -23,11 +23,6 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
   init();
 
   $scope.createIngredient = function(){
-    // if ($scope.formData.sku)
-      // $scope.newItem.sku = $scope.formData.sku
-
-
-    // console.log($scope.newItem);
     IngredientFactory.insertIngredient($scope.formData).then(function(response) {
 
       console.log(response);
@@ -35,8 +30,6 @@ cupboardController.controller('cupboardController', function($resource,$scope, $
       $scope.ingredients = response.data;
     }); 
   }
-
-
 
   $scope.deleteIngredient = function(id){
     var ohm = id;

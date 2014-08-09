@@ -15,7 +15,8 @@ var eshoprShop = angular.module('eshoprShop', [
     'ngCookies', 
     'ui.router',
     'ngResource',
-    'cupboardController'
+    'cupboardController',
+    'pageController',
     // 'recipeController'
     ])
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -47,7 +48,8 @@ var eshoprShop = angular.module('eshoprShop', [
         })
         .state('anon.home', {
             url: '/home/',
-            templateUrl: 'home',
+            // template:'jdffks',
+            templateUrl: 'page/ngview',
         })
         .state('anon.login', {
             url: '/login/',
@@ -71,7 +73,7 @@ var eshoprShop = angular.module('eshoprShop', [
         })
         .state('user.home', {
             url: '/',
-            templateUrl: 'home'
+            templateUrl: 'page/ngview',
         })
         .state('user.private', {
             abstract: true,
