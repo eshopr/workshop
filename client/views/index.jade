@@ -6,6 +6,8 @@ html(lang='en', data-ng-app='eshoprShop')
         link(rel='stylesheet', href='/css/app.css')
         link(href="/components/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
         link(href="/components/font-awesome/css/font-awesome.min.css", rel="stylesheet")
+        link(href="/views/partials/page/ngview.css", rel="stylesheet")
+        link(href="/views/partials/page/ngview-animate.css", rel="stylesheet")
 
         // This is needed because Facebook login redirects add #_=_ at the end of the URL
         script(type="text/javascript").
@@ -28,7 +30,6 @@ html(lang='en', data-ng-app='eshoprShop')
                             a(href='/private') Private
                         li(data-access-level='accessLevels.admin', active-nav)
                             a(href='/admin') Admin
-
                         li(data-access-level='accessLevels.admin', active-nav)
                             a(href='/admin') Admin
 

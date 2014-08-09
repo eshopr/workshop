@@ -1,6 +1,9 @@
 .container-fluid
     .row
-        .col-md-9(data-ui-view)
+        .col-md-9.relativity
+            .row
+                .span12.ui-view-container
+                    .page(ui-view)        
         .col-md-3
             div.list-group(data-ng-controller='NavCtrl')
                 a.list-group-item(href='/welcome', active-nav) One.

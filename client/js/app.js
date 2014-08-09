@@ -15,6 +15,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'ngCookies', 
     'ui.router',
     'ngResource',
+    'ngAnimate',
     'cupboardController',
     'pageController',
     // 'recipeController'
@@ -69,7 +70,6 @@ var eshoprShop = angular.module('eshoprShop', [
             url: 'three/',
             templateUrl: 'page/three'
         })
-
 
         .state('anon.login', {
             url: '/login/',
