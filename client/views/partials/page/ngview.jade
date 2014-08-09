@@ -1,4 +1,11 @@
-h1 appears
+.container-fluid
+    .row
+        .col-md-9(data-ui-view)
+        .col-md-3
+            div.list-group(data-ng-controller='NavCtrl')
+                a.list-group-item(href='/welcome', active-nav) One.
+                a.list-group-item(href='/two', active-nav) Two.
+                a.list-group-item(href='/three', active-nav) Three.
 
-section(ng-controller="pageController")
-    .page(class="{{ pageClass }}" ng-view)
+article(ng-controller="pageController")
+    {{pageClass}}

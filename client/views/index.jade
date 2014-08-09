@@ -29,6 +29,9 @@ html(lang='en', data-ng-app='eshoprShop')
                         li(data-access-level='accessLevels.admin', active-nav)
                             a(href='/admin') Admin
 
+                        li(data-access-level='accessLevels.admin', active-nav)
+                            a(href='/admin') Admin
+
                         div#userInfo.pull-right(data-access-level='accessLevels.anon')
                             | Welcome&nbsp;
                             strong {{ user.username }}&nbsp;
@@ -86,4 +89,13 @@ html(lang='en', data-ng-app='eshoprShop')
             include partials/register
         script(type="text/ng-template", id="page/ngview")
             include partials/page/ngview
+        script(type="text/ng-template", id="page/intro")
+            include partials/page/intro
+        script(type="text/ng-template", id="page/welcome")
+            include partials/page/welcome
+        script(type="text/ng-template", id="page/two")
+            include partials/page/two
+        script(type="text/ng-template", id="page/three")
+            include partials/page/three
+
 

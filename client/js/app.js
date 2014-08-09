@@ -46,11 +46,31 @@ var eshoprShop = angular.module('eshoprShop', [
                 access: access.anon
             }
         })
+        // Home
         .state('anon.home', {
-            url: '/home/',
-            // template:'jdffks',
+            abstract: true,
+            url: '/',
             templateUrl: 'page/ngview',
         })
+        .state('anon.home.intro', {
+            url: '',
+            // template:'home now',
+            templateUrl: 'page/intro'
+        })
+        .state('anon.home.welcome', {
+            url: 'welcome/',
+            templateUrl: 'page/welcome'
+        })
+        .state('anon.home.two', {
+            url: 'two/',
+            templateUrl: 'page/two'
+        })
+        .state('anon.home.three', {
+            url: 'three/',
+            templateUrl: 'page/three'
+        })
+
+
         .state('anon.login', {
             url: '/login/',
             templateUrl: 'login',
@@ -71,10 +91,7 @@ var eshoprShop = angular.module('eshoprShop', [
                 access: access.anon
             }
         })
-        .state('user.home', {
-            url: '/',
-            templateUrl: 'page/ngview',
-        })
+        // Private
         .state('user.private', {
             abstract: true,
             url: '/private/',

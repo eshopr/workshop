@@ -3,34 +3,12 @@
 // define our application and pull in ngRoute and ngAnimate
 var pageController = angular.module('pageController', ['ui.router', 'ngAnimate']);
 
-pageController.config([
-    '$stateProvider', 
-    '$urlRouterProvider', 
-    '$locationProvider', 
-    '$httpProvider', 
-    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+pageController.controller('pageController', 
+    function($resource,$scope, $http, IngredientFactory) { 
+        // we now must find some way to put ingredients in the 
+        $scope.pageClass = 'page-home';
 
-    var access = routingConfig.accessLevels;
-
-    // Public routes
-    $stateProvider
-    // home page
-    .state('/one', {
-        templateUrl: 'page/home',
-        controller: 'mainController'
-    })
-    // about page
-    .state('/two', {
-        templateUrl: 'page/about',
-        controller: 'aboutController'
-    })
-    // contact page
-    .state('/three', {
-        templateUrl: 'page/contact',
-        controller: 'contactController'
-    });
-    $urlRouterProvider.otherwise('/one');
-}]);
+});
 
 // // CONTROLLERS ============================================
 
