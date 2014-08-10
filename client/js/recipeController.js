@@ -1,48 +1,59 @@
 'use strict';
  
 // /* Controllers Module for studentDetailApp application*/ 
-var ingredientsController = angular.module('ingredientsController', ['ui.bootstrap']);
+var recipesController = angular.module('recipesController', ['ui.bootstrap']);
 
-ingredientsController.controller('ingredientsController', function($scope, $http) { 
-  // we now must find some way to put ingredients in the 
-  //scope 
-    $scope.studentName = "Sandeep Kumar Patel";
-    $scope.studentMark = 75;
-    $scope.thisisitheScopeValue = "ingredientsController";
-    $scope.formData = {}; // should probably be a directive or something
-  $scope.oneAtATime = true;
+recipesController.controller('recipesController', function($scope, $http) { 
 
-  $scope.groups = [
-    {
-      title: 'Biscuits',
-      content: 'total sales, stock, price, active'
-    },
-    {
-      title: 'Spring Onions',
-      content: 'total sales, stock, price, active'
-    },
-    {
-      title: 'Imported Rice',
-      content: 'total sales, stock, price, active'
-    },
-    {
-      title: 'Boiled Sweets',
-      content: 'total sales, stock, price, active'
-    }
-  ];
+  $scope.thisisitheScopeValue = "recipesController";
+  $scope.ingredients = 'will be replaced by a return from init';
+  $scope.formData = {} // we use this convention elsewhere
+  // $scope.items = [
+  //   'class': 'choc-chip',
+  //   'name': 'choc-chip',
+  //   'value':'0'
+  // ]; // item needs a factory
 
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+  function init() {
+    IngredientFactory.getIngredients().then(function(response) {
+      console.log(response)
+        $scope.ingredients = response.data;
+    });
+  }
+  init();
 
-  $scope.addItem = function() {
+  $scope.createRecipe = function(){
+    RecipeFactory.insertRecipe($scope.formData).then(function(response) {
+      console.log(response);
+      $scope.formData = {}; // clear the form so our user is ready to enter another
+      $scope.ingredients = response.data;
+    }); 
+  }
+
+  $scope.releaseIngredient = function(ingredient) {
+    ingredient.name
     var newItemNo = $scope.items.length + 1;
     $scope.items.push('Item ' + newItemNo);
   };
 
-  $scope.status = {
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
 
-    // $scope.ingredients = {}; // defing this here keeps your documentation in order
-    // $scope.ingredients = function(){
+
 });
+  // $scope.groups = [
+  //   {
+  //     title: 'Biscuits',
+  //     content: 'total sales, stock, price, active'
+  //   },
+  //   {
+  //     title: 'Spring Onions',
+  //     content: 'total sales, stock, price, active'
+  //   },
+  //   {
+  //     title: 'Imported Rice',
+  //     content: 'total sales, stock, price, active'
+  //   },
+  //   {
+  //     title: 'Boiled Sweets',
+  //     content: 'total sales, stock, price, active'
+  //   }
+  // ];

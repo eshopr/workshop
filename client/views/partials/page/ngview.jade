@@ -3,8 +3,20 @@
         .col-md-9.relativity
             .row
                 .span12.ui-view-container
-                    .page(ui-view)        
+                    .page
+                        .animation(ui-view)
         .col-md-3
+            h1 boom
+              #quote.number(
+                ng-controller="clockController"
+                ng-animate="'animate'")
+                {{one}}
+                {{two}}
+                {{three}}
+                {{four}}
+
+                //- h3 {{number}}
+
             div.list-group(data-ng-controller='NavCtrl')
                 a.list-group-item(href='/welcome', active-nav) One.
                 a.list-group-item(href='/two', active-nav) Two.

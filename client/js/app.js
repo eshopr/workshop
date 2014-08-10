@@ -18,6 +18,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'ngAnimate',
     'cupboardController',
     'pageController',
+    'clockController',
     // 'recipeController'
     ])
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
