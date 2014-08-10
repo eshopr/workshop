@@ -6,14 +6,15 @@
                     .page
                         .animation(ui-view)
         .col-md-3
-            h1 boom
+            h1 Clock
               #quote.number(
                 ng-controller="clockController"
                 ng-animate="'animate'")
-                {{one}}
-                {{two}}
-                {{three}}
-                {{four}}
+                {{clock[0]}}
+                {{clock[1]}}
+                {{clock[2]}}
+                {{clock[3]}}
+
 
                 //- h3 {{number}}
 

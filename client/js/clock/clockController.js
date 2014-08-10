@@ -5,6 +5,9 @@ var clockController = angular.module('clockController',[]);
 clockController.controller('clockController',
   function($scope){
     $scope.number = 12;
+    $scope.clock = {
+      times: []
+    };
     $scope.one = 0;
     $scope.two = 0;
     $scope.three = 0;
@@ -32,11 +35,16 @@ clockController.controller('clockController',
           console.log(n);
           var narr = n.split('');
           console.log(narr);
-          // $scope.number = n;
-          $scope.one = narr[0];
-          $scope.two = narr[1];
-          $scope.three = narr[2];
-          $scope.four = narr[3];
+          $scope.clock = narr;
+          // $scope.clock = n;
+          // $scope.clock.push(narr[0]);
+          // $scope.clock.push(narr[1]);
+          // $scope.clock.push(narr[2]);
+          // $scope.clock.push(narr[3]);
+          // $scope.one = narr[0];
+          // $scope.two = narr[1];
+          // $scope.three = narr[2];
+          // $scope.four = narr[3];
         });
       
       if ($scope.number < 1000) {
