@@ -20,11 +20,15 @@ var eshoprShop = angular.module('eshoprShop', [
     'pageController',
     'clockController',
     // 'recipeController'
-    ])
-.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    ]);
+
+eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 
+    function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $uiViewScrollProvider, $anchorScrollProvider ) {
 
     var access = routingConfig.accessLevels;
-
+    console.log($uiViewScrollProvider)
+    // $uiViewScrollProvider.useAnchorScroll();
+    // $anchorScrollProvider.disableAutoScrolling();
     // Public routes
     $stateProvider
         .state('public', {

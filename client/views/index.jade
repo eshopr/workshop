@@ -8,6 +8,7 @@ html(lang='en', data-ng-app='eshoprShop')
         link(href="/components/font-awesome/css/font-awesome.min.css", rel="stylesheet")
         link(href="/views/partials/page/ngview.css", rel="stylesheet")
         link(href="/views/partials/page/ngview-animate.css", rel="stylesheet")
+        link(href="/views/partials/partials.css", rel="stylesheet")
 
         // This is needed because Facebook login redirects add #_=_ at the end of the URL
         script(type="text/javascript").
@@ -40,11 +41,16 @@ html(lang='en', data-ng-app='eshoprShop')
                             a(href="", data-ng-click="logout()")
                                 | Log out
 
-        .container(data-ui-view)
+        
+        .container
+            .main-view(data-ui-view ng-animate="'animate'")
         #alertBox.alert.alert-danger(data-ng-show="error")
             button(type="button", class="close", data-ng-click="error = null;") &times;
             strong Oh no!&nbsp;
             span(data-ng-bind="error")
+
+        .footer
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-cookies/angular-cookies.min.js')

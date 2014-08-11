@@ -1,1 +1,19 @@
 h4 this is the clock
+
+        .col-md-3
+            h1 Clock
+              #quote.number(
+                ng-controller="clockController"
+                ng-animate="'animate'")
+                {{clock[0]}}
+                {{clock[1]}}
+                {{clock[2]}}
+                {{clock[3]}}
+
+
+                //- h3 {{number}}
+
+            div.list-group(data-ng-controller='NavCtrl')
+                a.list-group-item(href='/welcome', active-nav) One.
+                a.list-group-item(href='/two', active-nav) Two.
+                a.list-group-item(href='/three', active-nav) Three.

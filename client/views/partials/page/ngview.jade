@@ -1,27 +1,9 @@
 .container-fluid
     .row
-        .col-md-9.relativity
-            .row
-                .span12.ui-view-container
-                    .page
-                        .animation(ui-view)
-        .col-md-3
-            h1 Clock
-              #quote.number(
-                ng-controller="clockController"
-                ng-animate="'animate'")
-                {{clock[0]}}
-                {{clock[1]}}
-                {{clock[2]}}
-                {{clock[3]}}
+        .col-md-8.col-md-offset-2.ui-view-container
+            .page
+                .animation(ui-view)
 
-
-                //- h3 {{number}}
-
-            div.list-group(data-ng-controller='NavCtrl')
-                a.list-group-item(href='/welcome', active-nav) One.
-                a.list-group-item(href='/two', active-nav) Two.
-                a.list-group-item(href='/three', active-nav) Three.
 
 article(ng-controller="pageController")
     {{pageClass}}

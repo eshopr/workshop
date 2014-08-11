@@ -1,0 +1,139 @@
+/* style.css */
+
+body{
+    min-height: 600px;
+    background: url('green.png') !important;
+}
+.container {
+    min-height:500px;
+}
+
+.sub-menu-footer {
+    height:50px;
+    width:100%;
+    background: brown;
+}
+.footer {
+    height:300px;
+    background:beige;
+
+}
+.private {
+    background: gainsboro;
+    border-radius:7px 7px 0 0;
+    padding-bottom:30px;
+}
+.private h1,
+.private h2,
+.private h3,
+.private h4,
+.private h5,
+.private p,
+.private span {
+    color:#854D4D;
+}
+.private a {
+    color:#6B6651;
+}
+/* ANIMATION STYLINGS
+============================================================================= */
+.container {
+    position: relative;
+}
+.main-view[ui-view]             { width:auto; 
+background: green;
+min-height:500px;
+opacity: 1;
+overflow: hidden;
+position: absolute;
+top:0;
+}
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+.main-view.ng-enter,
+.main-view.ng-leave      { /*position:absolute; left:30px; right:30px*/;
+    transition:1.7s all ease; -moz-transition:1.7s all ease; -webkit-transition:1.7s all ease; 
+}
+    
+/* enter animation */
+.main-view.ng-enter            { 
+    -webkit-animation:slideInRight 1.7s both ease;
+    -moz-animation:slideInRight 1.7s both ease;
+    animation:slideInRight 1.7s both ease; 
+}
+
+/* leave animation */
+.main-view.ng-leave            { 
+    -webkit-animation:slideOutLeft 1.7s both ease;
+    -moz-animation:slideOutLeft 1.7s both ease;
+    animation:slideOutLeft 1.7s both ease;   
+}
+/*.animate-enter, 
+.animate-leave { 
+    -webkit-transition: 1050ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 1050ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 1050ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 1050ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 1050ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+} 
+ 
+.animate-leave.animate-leave-active,
+.animate-enter {
+    -webkit-transform: rotateX(-180deg) translatez(30px);
+    -moz-transform: rotateX(-180deg) translatez(30px);
+    -ms-transform: rotateX(-180deg) translatez(30px);
+    -o-transform: rotateX(-180deg) translatez(30px);
+    transform: rotateX(-180deg) translatez(30px);
+    opacity: 0;
+    height: 0px;
+}        */
+ 
+/*.animate-enter.animate-enter-active,
+.animate-leave {
+    -webkit-transform: rotateX(0deg) translatez(30px);
+    -moz-transform: rotateX(0deg) translatez(30px);
+    -ms-transform: rotateX(0deg) translatez(30px);
+    -o-transform: rotateX(0deg) translatez(30px);
+    transform: rotateX(0deg) translatez(30px);
+    opacity: 1;
+    height: 30px;
+}*/
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+/*@keyframes slideOutLeft {
+    to      { transform: translateY(-200%); }
+}
+@-moz-keyframes slideOutLeft {  
+    to      { -moz-transform: translateY(-200%); }
+}*/
+@-webkit-keyframes slideOutLeft {
+        from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* slide in from the right */
+/*@keyframes slideInRight {
+    from    { transform:translateY(200%); }
+    to      { transform: translateY(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateY(200%); }
+    to      { -moz-transform: translateY(0); }
+}*/
+@-webkit-keyframes slideInRight {
+        from { opacity: 0; }
+    to   { opacity: 1; }
+}
+        #myImg.fade-out
+        {
+            
+        }
+        #myImg.fade-in
+        {
+            opacity:1;
+        }
