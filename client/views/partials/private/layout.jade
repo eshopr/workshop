@@ -1,13 +1,10 @@
 .container-fluid
     .row
-        .col-md-8.col-md-offset-2.private(data-ui-view)
+        .col-md-8.col-md-offset-2
+            div.customer-menu(data-ng-controller='NavCtrl')
+                a.customer-menu-item(href='/private/cupboard', active-nav) Look in your cupboard.
+                a.customer-menu-item(href='/private/write', active-nav) Write about yourself.
+                a.customer-menu-item(href='/private/addrecipe', active-nav) Add a Recipe.
+                a.customer-menu-item(href='/private/admin', active-nav, data-access-level='accessLevels.admin') A nested admin view
     .row
-        .col-md-8.col-md-offset-2.sub-menu-footer
-            div.list-group(data-ng-controller='NavCtrl')
-                .list-group-item
-                    strong Things to do Today
-                //a.list-group-item(href='/private', active-nav) 
-                a.list-group-item(href='/private/cupboard', active-nav) Look in your cupboard.
-                a.list-group-item(href='/private/write', active-nav) Write about yourself.
-                a.list-group-item(href='/private/addrecipe', active-nav) Add a Recipe.
-                a.list-group-item(href='/private/admin', active-nav, data-access-level='accessLevels.admin') A nested admin view
+        .col-md-8.col-md-offset-2.private(data-ui-view autoscroll="false")

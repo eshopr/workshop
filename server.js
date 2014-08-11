@@ -16,7 +16,7 @@ mongoose.connect('mongodb://admin:cthulhu6785342@novus.modulusmongo.net:27017/i9
 
 var app = module.exports = express();
 
-app.set('views', __dirname + '/client/views');
+app.set('views', __dirname + '/client');
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded());

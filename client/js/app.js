@@ -33,7 +33,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
     $stateProvider
         .state('public', {
             abstract: true,
-            template: "<ui-view/>",
+            template: '<ui-view autoscroll="false"/>',
             data: {
                 access: access.public
             }
@@ -47,7 +47,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
     $stateProvider
         .state('anon', {
             abstract: true,
-            template: "<ui-view/>",
+            template: '<ui-view autoscroll="false"/>',
             data: {
                 access: access.anon
             }
@@ -91,7 +91,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
     $stateProvider
         .state('user', {
             abstract: true,
-            template: "<ui-view/>",
+            template: '<ui-view autoscroll="false"/>',
             data: {
                 access: access.anon
             }
@@ -131,7 +131,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
     $stateProvider
         .state('admin', {
             abstract: true,
-            template: "<ui-view/>",
+            template: '<ui-view autoscroll="false"/>',
             data: {
                 access: access.admin
             }
