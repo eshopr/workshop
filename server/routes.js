@@ -15,7 +15,12 @@ var Ingredient = mongoose.model('Ingredient', {
     price : String,
     inventory : String,
     image: String,
-    // usedby: [],
+});
+
+var Recipe = mongoose.model('Recipe', {
+    name : String,
+    creator: String,
+    // ingredients: [{id:String, value:Number}],
 });
 
 var routes = [
@@ -147,6 +152,58 @@ var routes = [
         accessLevel: accessLevels.public
     },
 
+
+    // Get all recipes
+    {
+        path: '/api/recipes',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            Recipe.find(function(err, recipes) {
+                    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+                    if (err)
+                        res.send(err)
+                    res.json(recipes); // return all ingredients in JSON format
+            });
+        }],
+        accessLevel: accessLevels.public
+    },
+
+    // Create a new recipe
+    {
+        path: '/api/recipes',
+        httpMethod: 'POST',
+        middleware: [function (req, res) {
+            console.log('new recipe')
+            console.log(req.body);
+            var recipe = new Recipe(); 
+            recipe.name= req.body.name;  
+            recipe.creator= req.body.creator;
+            //save the recipe and check for errors
+            recipe.save(function(err) {
+                if (err)
+                    res.send(err);
+            });
+        }],
+        accessLevel: accessLevels.public
+    },
+
+    // return a individual recipe
+    {
+        path: '/api/recipes/:recipe_id',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            console.log(req.params);
+            Recipe.find({
+                    _id : req.params.recipe_id
+                }, function(err, recipe) {
+                    console.log(recipe);
+                    if (err)
+                        res.send(err);
+                    res.json(recipe);
+            });
+        }],
+        accessLevel: accessLevels.public
+    },
 
     // OAUTH
     {

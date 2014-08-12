@@ -1,6 +1,11 @@
 var cupboardController = angular.module('cupboardController', ['ui.bootstrap']);
 
-cupboardController.controller('cupboardController', function($resource,$scope, $http, IngredientFactory) { 
+cupboardController.controller('cupboardController', function(
+  $resource,
+  $scope, 
+  $http, 
+  IngredientFactory
+  ) { 
   // we now must find some way to put ingredients in the 
   $scope.works = 'cupboardController';
   $scope.ingredients = {};

@@ -19,7 +19,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'cupboardController',
     'pageController',
     'clockController',
-    // 'recipeController'
+    'recipesController'
     ]);
 
 eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 
@@ -120,7 +120,8 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         })
         .state('user.private.addrecipe', {
             url: 'addrecipe/',
-            templateUrl: 'recipes/recipe'
+            templateUrl: 'recipes/add',
+            controller: 'recipesController',
         })
         .state('user.private.cupboard', {
             url: 'cupboard/',

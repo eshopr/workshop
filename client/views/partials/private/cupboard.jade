@@ -23,11 +23,11 @@ h3 Add an ingredient
             input.form-control(name="input" 
                 placeholder="Name"
                 ng-model="formData.productName")
-        .col-md-2
+        .col-md-1
             input.form-control(name="input" 
                 placeholder="Price"
                 ng-model="formData.price")
-        .col-md-2
+        .col-md-1
             input.form-control(name="input" 
                 placeholder="Inventory"
                 value="formData.inventory"
@@ -59,7 +59,10 @@ h3 Manage your ingredients -beta
             a(href="#" 
                 ng-show="editThisIngredient == ingredient._id"
                 data-ng-click="discardEdit(ingredient._id)" ) discard
-    .col-md-2
+    .col-md-3
+        span.item-span 
+            {{ingredient._id}}
+    .col-md-1
         span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.sku}}
         span.item-span(ng-show="editThisIngredient == ingredient._id") 
@@ -69,12 +72,12 @@ h3 Manage your ingredients -beta
             {{ingredient.productName}}
         span.item-span(ng-show="editThisIngredient == ingredient._id") 
             input.form-control(value="{{ingredient.productName}}")
-    .col-md-2
+    .col-md-1
         span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.price}}
         span.item-span(ng-show="editThisIngredient == ingredient._id") 
             input.form-control(value="{{ingredient.price}}")
-    .col-md-2
+    .col-md-1
         span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.inventory}}
         span.item-span(ng-show="editThisIngredient == ingredient._id") 
