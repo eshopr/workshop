@@ -23,3 +23,14 @@ eshoprShop.factory("IngredientFactory", function($http,$resource) {
   };
   return factory
 });
+
+eshoprShop.factory( "accommodation", function( ) {
+  return {
+    hotelName: function( ) {
+      return "Some Hotel";
+    },
+    roomNo: function( ) {
+      return "203";
+    }
+  };
+} );

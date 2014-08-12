@@ -94,7 +94,9 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         .state('anon.recipe', {
             url: '/recipes/:recipe_id',
             templateUrl: 'recipes/recipe',
-            // controller: 'RegisterCtrl'
+            controller: function($scope, $stateParams) {
+                $scope.foo = $stateParams.recipe_id;
+            }
         })
 
     // Regular user routes
