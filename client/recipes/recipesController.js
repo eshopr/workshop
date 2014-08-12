@@ -66,3 +66,26 @@ recipesController.controller('recipesController', function($scope) {
 })
 
 
+// recipe:{
+//     id: <object 03>
+//     name: super recipe
+//     creator <object 05>
+//     uses: [
+//         {
+//             ingredientRef: <object 01>
+//             amount: 23
+//         }
+//     ]
+// }
+
+// user:{ 
+//     id: <object 05>
+//     paypalemail: user@gmail.com
+//     recipes: [
+//         <object 03>
+//     ]
+// }
+
+// create Recipe
+//     name = formData
+//     creator = $scope.currentUser

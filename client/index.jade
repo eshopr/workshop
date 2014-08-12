@@ -28,6 +28,8 @@ html(lang='en', data-ng-app='eshoprShop')
                             a(href='/register') Register
                         li(data-access-level='accessLevels.anon', active-nav)
                             a(href='/') Home
+                        li(data-access-level='accessLevels.anon', active-nav)
+                            a(href='/recipes') Recipes
                         li(data-access-level='accessLevels.anon', active-nav='nestedTop')
                             a(href='/private') Private
                         li(data-access-level='accessLevels.admin', active-nav)
@@ -110,5 +112,11 @@ html(lang='en', data-ng-app='eshoprShop')
             include views/partials/page/three
         script(type="text/ng-template", id="clock/clock")
             include views/partials/clock/clock
+        script(type="text/ng-template", id="recipes/recipes")
+            include views/partials/recipes/recipes
+        script(type="text/ng-template", id="recipes/recipe")
+            include views/partials/recipes/recipe
+        script(type="text/ng-template", id="recipes/add")
+            include views/partials/recipes/add
 
 

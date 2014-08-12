@@ -1,0 +1,13 @@
+h2 This
+h6 is a list
+h3 of indivual
+h1 recipes
+
+article.listview(ng-repeat="recipe in recipes")
+    h3 {{recipe.name}}
+    h5 Created by {{recipe.owner}}
+    ul (ng-repeat="ingredient in recipe.ingredients")
+        li {{ingredient.name}}
+        li {{ingredient.value}}
+
+

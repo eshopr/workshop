@@ -85,7 +85,17 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             url: '/register/',
             templateUrl: 'register',
             controller: 'RegisterCtrl'
-        });
+        })
+        .state('anon.recipes', {
+            url: '/recipes/',
+            templateUrl: 'recipes/recipes',
+            // controller: 'RegisterCtrl'
+        })
+        .state('anon.recipe', {
+            url: '/recipes/:recipe_id',
+            templateUrl: 'recipes/recipe',
+            // controller: 'RegisterCtrl'
+        })
 
     // Regular user routes
     $stateProvider
@@ -108,7 +118,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         })
         .state('user.private.addrecipe', {
             url: 'addrecipe/',
-            templateUrl: 'private/add'
+            templateUrl: 'recipes/recipe'
         })
         .state('user.private.cupboard', {
             url: 'cupboard/',
