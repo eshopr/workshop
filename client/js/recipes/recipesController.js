@@ -14,8 +14,8 @@ recipesController.controller('recipesController', function(
   $scope.recipes = {};
   $scope.ingredients = {};
   $scope.bom = [{
-    "id": "Material1",
-    "value": 32 
+    "id": "Material",
+    "value": "select a value" 
   }];
   $scope.recipe = {};
   $scope.formData = {};
@@ -40,6 +40,19 @@ recipesController.controller('recipesController', function(
       $scope.formData = {}; // clear the form so our user is ready to enter another
       $scope.recipes = response.data;
     }); 
+  }
+
+  $scope.items = [];
+  $scope.addNew = function (){
+    $scope.items.push({ name: '' });
+  };
+  
+  $scope.submitOne = function (item){
+    $scope.lastSubmit = angular.copy(item);
+  };
+  
+  $scope.submitAll = function() {
+    $scope.lastSubmit = angular.copy($scope.items);
   }
 
   // $scope.showRecipes = function(id){

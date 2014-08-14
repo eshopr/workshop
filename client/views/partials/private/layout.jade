@@ -1,10 +1,12 @@
-.container-fluid
-    .row
-        .col-md-8.col-md-offset-2
-            div.customer-menu(data-ng-controller='NavCtrl')
+.row
+    .col-md-3
+        ul.customer-menu(data-ng-controller='NavCtrl')
+            li 
                 a.customer-menu-item(href='/private/cupboard', active-nav) Look in your cupboard.
+            li 
                 a.customer-menu-item(href='/private/write', active-nav) Write about yourself.
+            li 
                 a.customer-menu-item(href='/private/addrecipe', active-nav) Add a Recipe.
+            li 
                 a.customer-menu-item(href='/private/admin', active-nav, data-access-level='accessLevels.admin') A nested admin view
-    .row
-        .col-md-8.col-md-offset-2.private(data-ui-view autoscroll="false")
+    .col-md-9(data-ui-view autoscroll="false")

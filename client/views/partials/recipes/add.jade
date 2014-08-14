@@ -1,3 +1,37 @@
+.hero
+    a(ng-click="addNew()")
+        + add new
+    form(name="mainForm" ng-submit="submitAll()")
+        ul
+            li(
+                ng-repeat="item in items" 
+                ng-form="subForm")          
+                input(
+                    type="text" 
+                    required name="name" 
+                    ng-model="item.name")
+                span(
+                    ng-show="subForm.name.$error.required")
+                    required
+                button(
+                    type="button" 
+                    ng-disabled="subForm.$invalid" 
+                    ng-click="submitOne(item)")
+                    Submit One
+            
+        button(
+            type="submit" 
+            ng-disabled="mainForm.$invalid")
+            Submit All
+    hr
+    div(ng-show="lastSubmit")
+        h6 Last Submit:
+        pre
+            {{lastSubmit | json}}
+
+
+
+
 form.recipe-add-form(name="recipeAddForm"
         ng-controller="recipesController"
         ng-submit="createRecipe()"
@@ -13,25 +47,25 @@ form.recipe-add-form(name="recipeAddForm"
                 placeholder="Creator"
                 ng-model="formData.creator")
     hr
-    .row.well
-        .col-md-4
-            select.form-control.duplicate-this
-                option(ng-repeat="ingredient in ingredients" value="{{ingredient._id}}"){{ingredient.productName}}
-        .col-md-4
-            input.form-control(name="quantity"
-                placeholder="Quantity"
-                ng-model="formData.quantity"
-                )
-        .col-md-4
-            input.form-control.btn(ng-click value="Add")
+    //- .row.well
+    //-     .col-md-4
+    //-         select.form-control.duplicate-this
+    //-             option(ng-repeat="ingredient in ingredients" value="{{ingredient._id}}"){{ingredient.productName}}
+    //-     .col-md-4
+    //-         input.form-control(name="quantity"
+    //-             placeholder="Quantity"
+    //-             ng-model="formData.quantity"
+    //-             )
+    //-     .col-md-4
+    //-         input.form-control.btn(ng-click value="Add")
 
     .row(ng-repeat="material in bom")
         .col-md-4
             select
-                option(ng-repeat="ingredient in ingredients" value="{{ingredient._id}}")
+                option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
                     {{ingredient.productName}}
         .col-md-4
-            input(ng-model="material.id")
+            input(ng-model="material.value")
         .col-md-2
             button(href ng-click="bom.splice($index, 1)") remove 
         .col-md-2
@@ -42,3 +76,14 @@ form.recipe-add-form(name="recipeAddForm"
             article.bom-item(ng-repeat="recipe in recipes")
                 {{recipe.name}}
             input.form-control.btn(type="submit" id="submitnew" value="Create")
+hr
+hr
+.row
+    .col-md-12
+        accordion
+            accordion-group(
+                heading="{{recipe.name}}"
+                ng-repeat="recipe in recipes")
+                h4 {{recipe.name}}
+                .item(ng-repeat="material in recipe.bom")
+                    {{material.id}} | {{material.value}}
