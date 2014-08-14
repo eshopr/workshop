@@ -6,15 +6,25 @@ recipesController.controller('recipesController', function(
     $resource,
     $scope, 
     $http,
-    RecipeFactory
+    RecipeFactory,
+    IngredientFactory
     ) { 
-  // we now must find some way to put ingredients in the 
+
   $scope.works = 'recipeController';
   $scope.recipes = {};
+  $scope.ingredients = {};
+  $scope.bom = [{
+    "id": "Material1",
+    "value": 32 
+  }];
   $scope.recipe = {};
   $scope.formData = {};
   
   function init() {
+    IngredientFactory.getIngredients().then(function(response) {
+        console.log(response)
+        $scope.ingredients = response.data;
+    });
     RecipeFactory.getRecipes().then(function(response) {
       console.log(response)
         $scope.recipes = response.data;

@@ -1,8 +1,9 @@
-.row
-    form.recipe-add-form(name="recipeAddForm"
+form.recipe-add-form(name="recipeAddForm"
         ng-controller="recipesController"
         ng-submit="createRecipe()"
         )
+
+    .row.well
         .col-md-4
             input.form-control(name="input" 
                 placeholder="Name"
@@ -11,14 +12,33 @@
             input.form-control(name="input" 
                 placeholder="Creator"
                 ng-model="formData.creator")
+    hr
+    .row.well
         .col-md-4
-            input.form-control(name="input" 
-                placeholder="Ingredients"
-                ng-model="formData.ingredients")
+            select.form-control.duplicate-this
+                option(ng-repeat="ingredient in ingredients" value="{{ingredient._id}}"){{ingredient.productName}}
+        .col-md-4
+            input.form-control(name="quantity"
+                placeholder="Quantity"
+                ng-model="formData.quantity"
+                )
+        .col-md-4
+            input.form-control.btn(ng-click value="Add")
 
+    .row(ng-repeat="material in bom")
+        .col-md-4
+            select
+                option(ng-repeat="ingredient in ingredients" value="{{ingredient._id}}")
+                    {{ingredient.productName}}
+        .col-md-4
+            input(ng-model="material.id")
+        .col-md-2
+            button(href ng-click="bom.splice($index, 1)") remove 
+        .col-md-2
+            button(href ng-click="bom.push({})") add
+    hr
+    .row
+        .col-md-12
+            article.bom-item(ng-repeat="recipe in recipes")
+                {{recipe.name}}
             input.form-control.btn(type="submit" id="submitnew" value="Create")
-
-.row
-    .col-md-12
-        article.bom-item(ng-repeat="recipe in recipes")
-            {{recipe.name}}
