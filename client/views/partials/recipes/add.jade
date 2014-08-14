@@ -26,32 +26,28 @@
                         .item(
                             ng-repeat="item in items" 
                             ng-form="subForm")          
-                            input.form-control(
-                                type="text" 
-                                required name="name" 
-                                ng-model="item.material_id")
-                            input.form-control(
-                                type="text" 
-                                required name="name" 
-                                ng-model="item.quantity")
-                            span(
-                                ng-show="subForm.name.$error.required")
-                                required
-                            button(
-                                type="button" 
-                                ng-disabled="subForm.$invalid" 
-                                ng-click="submitOne(item)")
-                                Submit One
+                            //- .row(ng-repeat="material in bom")
+                            select.workshop
+                                option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
+                                    {{ingredient.productName}}
+                                input.form-control(
+                                    type="text" 
+                                    required name="name" 
+                                    ng-model="item.material_id")
+                                input.form-control(
+                                    type="text" 
+                                    required name="name" 
+                                    ng-model="item.quantity")
+                                span(
+                                    ng-show="subForm.name.$error.required")
+                                    required
+                                button(
+                                    type="button" 
+                                    ng-disabled="subForm.$invalid" 
+                                    ng-click="submitOne(item)")
+                                    Submit One
                         
-                    button(
-                        type="submit" 
-                        ng-disabled="mainForm.$invalid")
-                        Submit All
-hr
-div(ng-show="lastSubmit")
-    h6 Last Submit:
-    pre
-        {{lastSubmit | json}}
+                        //- ng-disabled="mainForm.$invalid")
 
 
 
@@ -68,19 +64,6 @@ div(ng-show="lastSubmit")
     //-             )
     //-     .col-md-4
     //-         input.form-control.btn(ng-click value="Add")
-
-    //- .row(ng-repeat="material in bom")
-    //-     .col-md-4
-    //-         select
-    //-             option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
-    //-                 {{ingredient.productName}}
-    //-     .col-md-4
-    //-         input(ng-model="material.value")
-    //-     .col-md-2
-    //-         button(href ng-click="bom.splice($index, 1)") remove 
-    //-     .col-md-2
-    //-         button(href ng-click="bom.push({})") add
-    //- hr
 
 hr
 hr

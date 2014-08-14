@@ -66,3 +66,7 @@ recipesController.controller('recipesController', function(
   // }
 });
 
+            $(document).ready(function(){
+                $('select').selectpicker();
+            });
+
