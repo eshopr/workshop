@@ -1,12 +1,16 @@
 .row
+    .col-md-9(data-ui-view autoscroll="false")
     .col-md-3
         ul.customer-menu(data-ng-controller='NavCtrl')
             li 
-                a.customer-menu-item(href='/private/cupboard', active-nav) Look in your cupboard.
+                i.fa.fa-cogs
+                a.customer-menu-item(href='/private/cupboard', active-nav) Manage Inventory.
             li 
+                i.fa.fa-cogs
                 a.customer-menu-item(href='/private/write', active-nav) Write about yourself.
             li 
+                i.fa.fa-cogs
                 a.customer-menu-item(href='/private/addrecipe', active-nav) Add a Recipe.
             li 
+                i.fa.fa-cogs
                 a.customer-menu-item(href='/private/admin', active-nav, data-access-level='accessLevels.admin') A nested admin view
-    .col-md-9(data-ui-view autoscroll="false")
