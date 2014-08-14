@@ -20,7 +20,7 @@ var Ingredient = mongoose.model('Ingredient', {
 var Recipe = mongoose.model('Recipe', {
     name : String,
     creator: String,
-    bom: [{id:String, quantity:Number, active:Boolean}],
+    bom: [{material_id:String, quantity:String, active:String}],
 });
 
 var routes = [
@@ -173,8 +173,14 @@ var routes = [
         path: '/api/recipes',
         httpMethod: 'POST',
         middleware: [function (req, res) {
-            console.log('new recipe')
+            console.log('new recipe req.body:-------');
             console.log(req.body);
+            console.log("req.body.name:------");
+            console.log(req.body.name);
+            console.log("req.body.creator-----");
+            console.log(req.body.creator);
+            console.log("req.body.bom-------");
+            console.log(req.body.bom);
             var recipe = new Recipe(); 
             recipe.name= req.body.name;  
             recipe.creator= req.body.creator;
