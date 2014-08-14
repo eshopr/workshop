@@ -27,7 +27,6 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
 
     var access = routingConfig.accessLevels;
     // console.log($uiViewScrollProvider);
-    $('select').selectpicker();
     // $uiViewScrollProvider.useAnchorScroll();
     // $anchorScrollProvider.disableAutoScrolling();
     // Public routes
@@ -117,7 +116,8 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         })
         .state('user.private.welcome', {
             url: '',
-            templateUrl: 'private/welcome'
+            templateUrl: 'private/welcome',
+            controller: 'pageController',
         })
         .state('user.private.addrecipe', {
             url: 'addrecipe/',
