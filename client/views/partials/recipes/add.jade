@@ -1,56 +1,62 @@
-.hero
-    a(ng-click="addNew()")
-        + add new
-    form(name="mainForm" ng-submit="submitAll()")
-        ul
-            li(
-                ng-repeat="item in items" 
-                ng-form="subForm")          
-                input(
-                    type="text" 
-                    required name="name" 
-                    ng-model="item.material_id")
-                input(
-                    type="text" 
-                    required name="name" 
-                    ng-model="item.quantity")
-                span(
-                    ng-show="subForm.name.$error.required")
-                    required
-                button(
-                    type="button" 
-                    ng-disabled="subForm.$invalid" 
-                    ng-click="submitOne(item)")
-                    Submit One
-            
-        button(
-            type="submit" 
-            ng-disabled="mainForm.$invalid")
-            Submit All
-    hr
-    div(ng-show="lastSubmit")
-        h6 Last Submit:
-        pre
-            {{lastSubmit | json}}
+.navbar.navbar-default
+    .container-fluid
+        .navbar-inner
+            form.navbar-form.pull-left(name="recipeAddForm"
+                    ng-submit="createRecipe()"
+                    )
+                input.span2.form-control(name="input" 
+                    type="text"
+                    placeholder="Name"
+                    ng-model="formData.name" required)
+                input.span2.form-control(name="input" 
+                    type="text"
+                    placeholder="Creator"
+                    ng-model="formData.creator")
+
+                button.btn(type="submit" id="submitnew" value="Create")
+                    Create New
+
+
+                hr
+
+                a(ng-click="addNew()")
+                    + add new item to bill of materials
+                form(name="mainForm" ng-submit="submitAll()")
+                    .well
+                        .item(
+                            ng-repeat="item in items" 
+                            ng-form="subForm")          
+                            input.form-control(
+                                type="text" 
+                                required name="name" 
+                                ng-model="item.material_id")
+                            input.form-control(
+                                type="text" 
+                                required name="name" 
+                                ng-model="item.quantity")
+                            span(
+                                ng-show="subForm.name.$error.required")
+                                required
+                            button(
+                                type="button" 
+                                ng-disabled="subForm.$invalid" 
+                                ng-click="submitOne(item)")
+                                Submit One
+                        
+                    button(
+                        type="submit" 
+                        ng-disabled="mainForm.$invalid")
+                        Submit All
+hr
+div(ng-show="lastSubmit")
+    h6 Last Submit:
+    pre
+        {{lastSubmit | json}}
 
 
 
 
         //- ng-controller="recipesController"
-form.recipe-add-form(name="recipeAddForm"
-        ng-submit="createRecipe()"
-        )
-
-    .row.well
-        .col-md-4
-            input.form-control(name="input" 
-                placeholder="Name"
-                ng-model="formData.name" required)
-        .col-md-4
-            input.form-control(name="input" 
-                placeholder="Creator"
-                ng-model="formData.creator")
-    hr
     //- .row.well
     //-     .col-md-4
     //-         select.form-control.duplicate-this
@@ -63,31 +69,32 @@ form.recipe-add-form(name="recipeAddForm"
     //-     .col-md-4
     //-         input.form-control.btn(ng-click value="Add")
 
-    .row(ng-repeat="material in bom")
-        .col-md-4
-            select
-                option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
-                    {{ingredient.productName}}
-        .col-md-4
-            input(ng-model="material.value")
-        .col-md-2
-            button(href ng-click="bom.splice($index, 1)") remove 
-        .col-md-2
-            button(href ng-click="bom.push({})") add
-    hr
-    .row
-        .col-md-12
-            article.bom-item(ng-repeat="recipe in recipes")
-                {{recipe.name}}
-            input.form-control.btn(type="submit" id="submitnew" value="Create")
+    //- .row(ng-repeat="material in bom")
+    //-     .col-md-4
+    //-         select
+    //-             option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
+    //-                 {{ingredient.productName}}
+    //-     .col-md-4
+    //-         input(ng-model="material.value")
+    //-     .col-md-2
+    //-         button(href ng-click="bom.splice($index, 1)") remove 
+    //-     .col-md-2
+    //-         button(href ng-click="bom.push({})") add
+    //- hr
+
 hr
 hr
 .row
     .col-md-12
         accordion
             accordion-group(
-                heading="{{recipe.name}}"
+                heading="<h1>this</h1>and<h4>that</h4>{{recipe.name}}"
                 ng-repeat="recipe in recipes")
                 h4 {{recipe.name}}
                 .item(ng-repeat="material in recipe.bom")
                     {{material.id}} | {{material.value}}
+
+.row
+    .col-md-12
+        article.bom-item(ng-repeat="recipe in recipes")
+            {{recipe.name}}
