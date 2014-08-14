@@ -20,7 +20,7 @@ var Ingredient = mongoose.model('Ingredient', {
 var Recipe = mongoose.model('Recipe', {
     name : String,
     creator: String,
-    bom: [{id:String, value:Number}],
+    bom: [{id:String, quantity:Number, active:Boolean}],
 });
 
 var routes = [
@@ -178,7 +178,7 @@ var routes = [
             var recipe = new Recipe(); 
             recipe.name= req.body.name;  
             recipe.creator= req.body.creator;
-            recipe.bom= req.body.ingredients;
+            recipe.bom= req.body.bom;
             //save the recipe and check for errors
             recipe.save(function(err) {
                 if (err)

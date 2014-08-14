@@ -9,7 +9,11 @@
                 input(
                     type="text" 
                     required name="name" 
-                    ng-model="item.name")
+                    ng-model="item.id")
+                input(
+                    type="text" 
+                    required name="name" 
+                    ng-model="item.quantity")
                 span(
                     ng-show="subForm.name.$error.required")
                     required
@@ -32,8 +36,8 @@
 
 
 
+        //- ng-controller="recipesController"
 form.recipe-add-form(name="recipeAddForm"
-        ng-controller="recipesController"
         ng-submit="createRecipe()"
         )
 

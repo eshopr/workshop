@@ -13,10 +13,10 @@ recipesController.controller('recipesController', function(
   $scope.works = 'recipeController';
   $scope.recipes = {};
   $scope.ingredients = {};
-  $scope.bom = [{
-    "id": "Material",
-    "value": "select a value" 
-  }];
+  // $scope.bom = [{
+  //   "id": "Material",
+  //   "value": "select a value" 
+  // }];
   $scope.recipe = {};
   $scope.formData = {};
   
@@ -33,10 +33,13 @@ recipesController.controller('recipesController', function(
   init();
 
   $scope.createRecipe = function(){
-    console.log('doing stuff');
+    console.log($scope.items);
+    $scope.formData.bom = $scope.items;
+    console.log($scope.formData);
     RecipeFactory.insertRecipe($scope.formData).then(function(response) {
 
       console.log(response);
+      $scope.items = [];
       $scope.formData = {}; // clear the form so our user is ready to enter another
       $scope.recipes = response.data;
     }); 
@@ -44,7 +47,8 @@ recipesController.controller('recipesController', function(
 
   $scope.items = [];
   $scope.addNew = function (){
-    $scope.items.push({ name: '' });
+    $scope.items.push({ active: "true" });
+    console.log($scope.items);
   };
   
   $scope.submitOne = function (item){
@@ -60,6 +64,5 @@ recipesController.controller('recipesController', function(
   //     $scope.item = response.data;
   //   }); 
   // }
-
 });
 
