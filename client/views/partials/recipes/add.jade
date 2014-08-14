@@ -1,20 +1,24 @@
 .row
     form.recipe-add-form(name="recipeAddForm"
         ng-controller="recipesController"
-        ng-submit="createrecipe()"
+        ng-submit="createRecipe()"
         )
         .col-md-4
             input.form-control(name="input" 
                 placeholder="Name"
                 ng-model="formData.name" required)
-        .col-md-2
+        .col-md-4
             input.form-control(name="input" 
-                placeholder="Name"
+                placeholder="Creator"
                 ng-model="formData.creator")
-        .col-md-1
+        .col-md-4
             input.form-control(name="input" 
                 placeholder="Ingredients"
                 ng-model="formData.ingredients")
 
             input.form-control.btn(type="submit" id="submitnew" value="Create")
 
+.row
+    .col-md-12
+        article.bom-item(ng-repeat="recipe in recipes")
+            {{recipe.name}}
