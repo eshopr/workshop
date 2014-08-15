@@ -22,12 +22,12 @@ h3 Add a stock item
             input.form-control(name="input" 
                 placeholder="Name"
                 ng-model="formData.productName")
-        .col-md-1
+        .col-md-2
             h5 Price
             input.form-control(name="input" 
                 placeholder="Price"
                 ng-model="formData.price")
-        .col-md-1
+        .col-md-2
             h5 Stock
             input.form-control(name="input" 
                 placeholder="Inventory"
@@ -38,7 +38,7 @@ h3 Add a stock item
                 i.fa.fa-tag
                 span &nbsp;Sets
             select.moss.span-2
-                option(ng-repeat="set in sets") {{set.name}}
+                option(ng-repeat="set in sets")  {{set.name}}
         .col-md-2
             input.form-control.btn.moss-btn(type="submit" id="submitnew" value="Create")
 
@@ -50,10 +50,12 @@ hr
 
 h3 Manage your existing stock
 
-.well
+.hay
     Currently Viewed Item
-    pre
+    pre.water
         {{item}}
+        .fly(ng-repeat="it in item")
+            {{it.name}}
 .item.row 
     .col-md-1
         span.item-span-heading

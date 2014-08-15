@@ -1,53 +1,61 @@
-.navbar.navbar-default
-    .container-fluid
-        .navbar-inner
-            form.navbar-form.pull-left(name="recipeAddForm"
-                    ng-submit="createRecipe()"
-                    )
-                input.span2.form-control(name="input" 
-                    type="text"
-                    placeholder="Name"
-                    ng-model="formData.name" required)
-                input.span2.form-control(name="input" 
-                    type="text"
-                    placeholder="Creator"
-                    ng-model="formData.creator")
+h2 
+    span
+        i.fa.fa-wrench &nbsp;
+    span Product Management
 
-                button.btn(type="submit" id="submitnew" value="Create")
-                    Create New
+hr
+
+h3 Create a Bill of Materials
+
+.row
+    form(name="recipeAddForm"
+        ng-submit="createRecipe()")
+        .col-md-2
+            h5 Name
+            input.form-control(name="input" 
+                type="text"
+                placeholder="Name"
+                ng-model="formData.name" required)
+        .col-md-2
+            h5 Group
+            input.form-control(name="input" 
+                type="text"
+                placeholder="Category"
+                ng-model="formData.creator")
 
 
-                hr
-
-                a(ng-click="addNew()")
-                    + add new item to bill of materials
-                form(name="mainForm" ng-submit="submitAll()")
-                    .well
-                        .item(
-                            ng-repeat="item in items" 
-                            ng-form="subForm")          
-                            //- .row(ng-repeat="material in bom")
-                            select.workshop
-                                option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
-                                    {{ingredient.productName}}
-                            input.form-control(
-                                type="text" 
-                                required name="name" 
-                                ng-model="item.material_id")
-                            input.form-control(
-                                type="text" 
-                                required name="name" 
-                                ng-model="item.quantity")
-                            span(
-                                ng-show="subForm.name.$error.required")
-                                required
-                            button(
-                                type="button" 
-                                ng-disabled="subForm.$invalid" 
-                                ng-click="submitOne(item)")
-                                Submit One
-                    
-                        //- ng-disabled="mainForm.$invalid")
+        .col-md-6
+            a(ng-click="addNew()")
+                + add new item to bill of materials
+            form(name="mainForm" ng-submit="submitAll()")
+                .well
+                    .item(
+                        ng-repeat="item in items" 
+                        ng-form="subForm")          
+                        //- .row(ng-repeat="material in bom")
+                        select.mos| filter:search:strict"| filter:search:stricts
+                            option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
+                                {{ingredient.productName}}
+                        //- input.form-control(
+                        //-     type="text" 
+                        //-     required name="name" 
+                        //-     ng-model="item.material_id")
+                        input.form-control(
+                            type="text" 
+                            required name="name" 
+                            ng-model="item.quantity")
+                        span(
+                            ng-show="subForm.name.$error.required")
+                            required
+        .col-md-2
+            button.btn.moss-btn(type="submit" id="submitnew" value="Create") Save
+                        //- button(
+                        //-     type="button" 
+                        //-     ng-disabled="subForm.$invalid" 
+                        //-     ng-click="submitOne(item)")
+                        //-     Submit One
+                
+                    //- ng-disabled="mainForm.$invalid")
 
 
 
@@ -71,13 +79,17 @@ hr
     .col-md-12
         accordion
             accordion-group(
-                heading="<h1>this</h1>and<h4>that</h4>{{recipe.name}}"
+                heading="{{recipe.name}}"
                 ng-repeat="recipe in recipes")
-                h4 {{recipe.name}}
-                .item(ng-repeat="material in recipe.bom")
-                    {{material.id}} | {{material.value}}
+                h4 Name: {{recipe.name}}
+                h5 Group: {{recipe.creator}}
+                //- h6 {{recipe.bom}}
+                .item(class="{{material.active}}" ng-repeat="material in recipe.bom")
+                    p  | filter:search:{{material._id}}                 
+                    p {{material.quantity}}
+                    p {{material.active}}
 
-.row
-    .col-md-12
-        article.bom-item(ng-repeat="recipe in recipes")
-            {{recipe.name}}
+//- .row
+//-     .col-md-12
+//-         article.bom-item(ng-repeat="recipe in recipes")
+//-             {{recipe.name}}
