@@ -11,6 +11,15 @@ cupboardController.controller('cupboardController', function(
   $scope.ingredients = {};
   $scope.item = {};
   $scope.formData = {};
+  $scope.sets =[
+    {"name":"Rotor"},
+    {"name":"Nacelle"},
+    {"name":"Other"}
+  ];
+    // Hub 
+    // Blades
+
+    // Gearbox 3
   // $scope.newItem = {
   //     "sku" : "String",
   //     "productName" : "String",

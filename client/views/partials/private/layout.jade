@@ -1,16 +1,16 @@
 .row
     .col-md-9(data-ui-view autoscroll="false")
     .col-md-3
-        ul.customer-menu(data-ng-controller='NavCtrl')
+        ul.customer-menu.admin-sidebar(data-ng-controller='NavCtrl')
             li 
-                i.fa.fa-cogs
-                a.customer-menu-item(href='/private/cupboard', active-nav) Manage Inventory.
+                i.fa.fa-briefcase
+                a.customer-menu-item(href='/private/cupboard', active-nav) &nbsp;Manage Inventory.
             li 
-                i.fa.fa-cogs
-                a.customer-menu-item(href='/private/write', active-nav) Write about yourself.
+                i.fa.fa-calendar-o
+                a.customer-menu-item(href='/private/write', active-nav)  &nbsp;Post to jobs board.
             li 
-                i.fa.fa-cogs
-                a.customer-menu-item(href='/private/addrecipe', active-nav) Add a Recipe.
+                i.fa.fa-wrench
+                a.customer-menu-item(href='/private/addrecipe', active-nav)  &nbsp;Manage Products.
             li 
-                i.fa.fa-cogs
+                //i.fa.fa-calendar-o
                 a.customer-menu-item(href='/private/admin', active-nav, data-access-level='accessLevels.admin') A nested admin view

@@ -30,23 +30,23 @@
                             select.workshop
                                 option(ng-repeat="ingredient in ingredients" ng-model="ingredient._id" value="{{ingredient._id}}")
                                     {{ingredient.productName}}
-                                input.form-control(
-                                    type="text" 
-                                    required name="name" 
-                                    ng-model="item.material_id")
-                                input.form-control(
-                                    type="text" 
-                                    required name="name" 
-                                    ng-model="item.quantity")
-                                span(
-                                    ng-show="subForm.name.$error.required")
-                                    required
-                                button(
-                                    type="button" 
-                                    ng-disabled="subForm.$invalid" 
-                                    ng-click="submitOne(item)")
-                                    Submit One
-                        
+                            input.form-control(
+                                type="text" 
+                                required name="name" 
+                                ng-model="item.material_id")
+                            input.form-control(
+                                type="text" 
+                                required name="name" 
+                                ng-model="item.quantity")
+                            span(
+                                ng-show="subForm.name.$error.required")
+                                required
+                            button(
+                                type="button" 
+                                ng-disabled="subForm.$invalid" 
+                                ng-click="submitOne(item)")
+                                Submit One
+                    
                         //- ng-disabled="mainForm.$invalid")
 
 

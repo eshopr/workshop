@@ -8,7 +8,7 @@ pageController.controller('pageController',
         // we now must find some way to put ingredients in the 
 
     $scope.pageClass = 'digital factory';
-    $scope.pageClass = 'production line';
+    $scope.pageClass2 = 'production line';
     $scope.rainingPhrase = $(".raining-text");
     $scope.tl = new TimelineLite();
     $scope.tl.add(TweenLite.set($scope.rainingPhrase, {bottom: 250}));

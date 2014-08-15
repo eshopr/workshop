@@ -1,6 +1,9 @@
 .recipes h1 {
     color:pink;
 }
+.item-span-heading {
+    font-weight: bold;
+}
 .btn {
 
 /* display: inline-block; */

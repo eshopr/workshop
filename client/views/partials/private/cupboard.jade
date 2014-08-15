@@ -1,14 +1,11 @@
 h2 
     span
-        i.fa.fa-search &nbsp;
-    {Usernames} Cupboard
+        i.fa.fa-briefcase &nbsp;
+    span Inventory Management
 
-.hero
-    Currently Viewed Itemm
-    pre
-        {{item}}
+hr
 
-h3 Add an ingredient 
+h3 Add a stock item
 
 .row
     form.ingredient-add-form(name="myForm" 
@@ -16,35 +13,68 @@ h3 Add an ingredient
         ng-submit="createIngredient()"
         )
         .col-md-2
+            h5 SKU
             input.form-control(name="input" 
                 placeholder="SKU"
                 ng-model="formData.sku" required)
         .col-md-2
+            h5 Name
             input.form-control(name="input" 
                 placeholder="Name"
                 ng-model="formData.productName")
         .col-md-1
+            h5 Price
             input.form-control(name="input" 
                 placeholder="Price"
                 ng-model="formData.price")
         .col-md-1
+            h5 Stock
             input.form-control(name="input" 
                 placeholder="Inventory"
                 value="formData.inventory"
                 ng-model="formData.inventory")
         .col-md-2
-            input.form-control(name="input" 
-                placeholder="Image"
-                ng-model="formData.image")
+            h5 
+                i.fa.fa-tag
+                span &nbsp;Sets
+            select.moss.span-2
+                option(ng-repeat="set in sets") {{set.name}}
         .col-md-2
-            input.form-control.btn(type="submit" id="submitnew" value="Create")
+            input.form-control.btn.moss-btn(type="submit" id="submitnew" value="Create")
 
-.row
-    .col-md-12
-        pre
-            {{formData}}
+//- .row
+//-     .col-md-12
+//-         pre
+//-             {{formData}}
+hr
 
-h3 Manage your ingredients -beta
+h3 Manage your existing stock
+
+.well
+    Currently Viewed Item
+    pre
+        {{item}}
+.item.row 
+    .col-md-1
+        span.item-span-heading
+            i.fa.fa-search
+    .col-md-1
+        span.item-span-heading
+            i.fa.fa-hdd-o
+    .col-md-1
+        span.item-span-heading SKU
+    .col-md-2 
+        span.item-span-heading Name
+    .col-md-1
+        span.item-span-heading Price 
+    .col-md-1
+        span.item-span-heading Units
+    .col-md-2
+        span.item-span-heading 
+            i.fa.fa-tag
+            &nbsp;Set
+    .col-md-1
+        i.fa.fa-eraser
 
 .item.row(ng-repeat="ingredient in ingredients")
     .col-md-1
@@ -59,15 +89,13 @@ h3 Manage your ingredients -beta
             a(href="#" 
                 ng-show="editThisIngredient == ingredient._id"
                 data-ng-click="discardEdit(ingredient._id)" ) discard
-    .col-md-3
-        span.item-span 
-            {{ingredient._id}}
     .col-md-1
         span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.sku}}
         span.item-span(ng-show="editThisIngredient == ingredient._id") 
             input.form-control(value="{{ingredient.sku}}")
-    .col-md-2 
+    .col-md-2
+
         span.item-span(ng-hide="editThisIngredient == ingredient._id") 
             {{ingredient.productName}}
         span.item-span(ng-show="editThisIngredient == ingredient._id") 
@@ -83,6 +111,11 @@ h3 Manage your ingredients -beta
         span.item-span(ng-show="editThisIngredient == ingredient._id") 
             input.form-control(value="{{ingredient.inventory}}")
     .col-md-2
+        span.item-span(ng-hide="editThisIngredient == ingredient.set") 
+            {{ingredient.set}}
+        span.item-span(ng-show="editThisIngredient == ingredient.set") 
+            input.form-control(value="{{ingredient.set}}")
+    .col-md-1
         a(href='#' 
             ng-hide="editThisIngredient == ingredient._id"
             ng-click="deleteIngredient(ingredient._id)") delete

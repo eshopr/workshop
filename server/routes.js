@@ -14,7 +14,7 @@ var Ingredient = mongoose.model('Ingredient', {
     productName : String,
     price : String,
     inventory : String,
-    image: String,
+    set: String,
 });
 
 var Recipe = mongoose.model('Recipe', {
@@ -73,7 +73,7 @@ var routes = [
             ingredient.productName= req.body.productName;
             ingredient.price= req.body.price;
             ingredient.inventory= req.body.inventory;
-            ingredient.image= req.body.image;
+            ingredient.set= req.body.set;
             //save the ingredient and check for errors
             ingredient.save(function(err) {
                 if (err)
